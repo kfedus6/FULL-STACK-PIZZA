@@ -29,7 +29,7 @@ class UserController {
 
         } catch (e) {
             console.log(e)
-            return next(ApiError.badRequest('Registration error'))
+            return next(ApiError.internal('Registration error'))
         }
     }
 
@@ -52,7 +52,7 @@ class UserController {
 
         } catch (e) {
             console.log(e)
-            return next(ApiError.badRequest('Login error'))
+            return next(ApiError.internal('Login error'))
         }
     }
 
@@ -62,11 +62,10 @@ class UserController {
             return res.json({ status: 200, token })
         } catch (e) {
             console.log(e)
-            return next(ApiError.badRequest('Authorization error'))
+            return next(ApiError.internal('Authorization error'))
         }
     }
 }
 
 const userController = new UserController()
-
 module.exports = userController

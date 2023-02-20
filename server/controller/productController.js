@@ -38,18 +38,9 @@ class ProductController {
             let products = []
 
             const count = await Product.find().count()
+            products = await Product.find().skip(page * limit).limit(limit)
 
-            db.collection('products')
-                .find()
-                .skip(page * limit)
-                .limit(limit)
-                .forEach(product => products.push(product))
-                .then(() => {
-                    res.json({ status: 200, products, count })
-                })
-                .catch(() => {
-                    next(ApiError.internal('Pagination products error'))
-                })
+            return res.json({ status: 200, products, count })
 
         } catch (e) {
             console.log(e)
@@ -58,7 +49,17 @@ class ProductController {
     }
 
     async getProductId(req, res, next) {
+        try {
+            const { id } = req.params
 
+            const product = await Product.findOne({ _id: id })
+
+            return res.json({ status: 200, product })
+
+        } catch (e) {
+            console.log(e)
+            return next(ApiError.internal('Get product error'))
+        }
     }
 
     async putProductId(req, res, next) {
@@ -66,7 +67,17 @@ class ProductController {
     }
 
     async deleteProductId(req, res, next) {
+        try {
+            const { id } = req.params
 
+            const product = await Product.deleteOne({ _id: id })
+
+            return res.json({ status: 200, product })
+
+        } catch (e) {
+            console.log(e)
+            return next(ApiError.internal('Delete product error'))
+        }
     }
 }
 

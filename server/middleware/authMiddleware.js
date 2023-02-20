@@ -11,6 +11,6 @@ module.exports = (req, res, next) => {
         next()
     } catch (e) {
         console.log(e)
-        return next(ApiError.forbidden('The user is not registered'))
+        return next(ApiError.forbidden('The user is not registered error'))
     }
 }

@@ -3,6 +3,15 @@
         "first_link": "Головна",
         "second_link": "Піца",
         "third_link": "Про нас",
-        "fourth_link": "Контакти"
+        "fourth_link": "Контакти",
+        "ukraine": "Українська",
+        "english": "Англійська",
+        "login": "Вхід",
+        "registration": "Реєстрація"
+    },
+    "home": {
+        "baner_text_first": "від італійського кухаря",
+        "baner_text_second": "Найкраща піца у Львові",
+        "baner_button": "Вибрати"
     }
 }

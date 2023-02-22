@@ -1,0 +1,17 @@
+{
+    "header": {
+        "first_link": "Home",
+        "second_link": "Pizza",
+        "third_link": "About us",
+        "fourth_link": "Contacts",
+        "ukraine": "Ukraine",
+        "english": "English",
+        "login": "Login",
+        "registration": "Registration"
+    },
+    "home": {
+        "baner_text_first": "from an Italian chef",
+        "baner_text_second": "The best pizza in Lviv",
+        "baner_button": "Choose"
+    }
+}

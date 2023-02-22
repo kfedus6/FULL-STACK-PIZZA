@@ -1,9 +1,3 @@
-export interface ProductResponse {
-    status: boolean;
-    products: Product[];
-    count: number;
-}
-
 export interface Product {
     id: number;
     title: string;

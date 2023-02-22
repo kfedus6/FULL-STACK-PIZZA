@@ -22,12 +22,12 @@
     height: 100%;
 }
   
-.section-top__baner__container {
+.section-top__baner-container {
     position: relative;
     width: 520px;
 }
   
-.section-top__baner__info {
+.section-top__baner-info {
     font-size: 26px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -36,7 +36,7 @@
     cursor: default;
 }
   
-.section-top__baner__tittle {
+.section-top__baner-tittle {
     font-family: 'Montserrat', sans-serif;
     font-size: 45px;
     font-weight: 900;
@@ -70,4 +70,26 @@
 .baner-btn:active {
     opacity: 0.8;
     transform: scale(.95);
+}
+
+@media (max-width: 992px) {
+    .section-top__baner {
+      padding-top: 150px;
+    }
+}
+  
+@media (max-width: 576px) {
+    .section-top__baner-info {
+      font-size: 18px;
+    }
+  
+    .section-top__baner-tittle {
+      font-size: 30px;
+    }
+}
+  
+@media (max-width: 390px) {
+    .section-top__baner-tittle {
+      font-size: 30px;
+    }
 }

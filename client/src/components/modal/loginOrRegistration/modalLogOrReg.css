@@ -1,0 +1,62 @@
+.modal-log__reg {
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: all 0.6s;
+}
+
+.modal-log__reg.modal-log__reg-active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(0);
+    backdrop-filter: blur(3px);
+}
+
+.modal-log__reg-content {
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 500px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    transition: all 1s;
+    background: rgba(11, 20, 25, 0.9);
+}
+
+.modal-registration {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-registration-close {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.modal-registration-close img {
+    width: 40px;
+    height: 40px;
+}
+
+.modal-registration-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-registration-form input {
+    width: 90%;
+}

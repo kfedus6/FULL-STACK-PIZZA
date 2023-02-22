@@ -40,12 +40,12 @@ const SetLanguage = () => {
                         {language() === 'UA'
                             ?
                             <>
-                                <a className='titte-language'>Українська</a>
+                                <span className='titte-language'>{t('header.ukraine')}</span>
                                 <img className='chevron-down__language' src={process.env.REACT_APP_API_URL + 'chevron-down.png'} alt="chevron-down" />
                             </>
                             :
                             <>
-                                <a className='titte-language'>Англійська</a>
+                                <span className='titte-language'>{t('header.english')}</span>
                                 <img className='chevron-down__language' src={process.env.REACT_APP_API_URL + 'chevron-down.png'} alt="chevron-down" />
                             </>
                         }
@@ -57,13 +57,27 @@ const SetLanguage = () => {
                     <div onClick={() => setDropdownCheck(false)}>
                         <div onClick={() => changeLanguage('UA')}>
                             <img className='icon-language' src={process.env.REACT_APP_API_URL + 'uk.png'} alt="UA" />
-                            <a className='titte-language'>Українська</a>
+                            <span className='titte-language'>{t('header.ukraine')}</span>
                         </div>
                     </div>
                     <div onClick={() => setDropdownCheck(false)}>
                         <div onClick={() => changeLanguage('EN')}>
                             <img className='icon-language' src={process.env.REACT_APP_API_URL + 'ue.png'} alt="EN" />
-                            <a className='titte-language'>Англійська</a>
+                            <span className='titte-language'>{t('header.english')}</span>
+                        </div>
+                    </div>
+                </div>
+                <div className='dropdown-list__language-menu'>
+                    <div onClick={() => setDropdownCheck(false)}>
+                        <div onClick={() => changeLanguage('UA')}>
+                            <img className='icon-language' src={process.env.REACT_APP_API_URL + 'uk.png'} alt="UA" />
+                            <span className='titte-language'>{t('header.ukraine')}</span>
+                        </div>
+                    </div>
+                    <div onClick={() => setDropdownCheck(false)}>
+                        <div onClick={() => changeLanguage('EN')}>
+                            <img className='icon-language' src={process.env.REACT_APP_API_URL + 'ue.png'} alt="EN" />
+                            <span className='titte-language'>{t('header.english')}</span>
                         </div>
                     </div>
                 </div>

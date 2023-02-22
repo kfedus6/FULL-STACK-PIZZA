@@ -36,8 +36,7 @@ main {
     width: 100%;
     z-index: 120;
     background: rgba(11, 20, 25, 0.9);
-    padding: 9px 0;
-    overflow: hidden;
+    padding: 15px 0;
 }
 
 .header-page__container {
@@ -48,10 +47,15 @@ main {
     width: 70%;
 }
 
-.logo {
+.logo button {
     color: rgb(240, 160, 12);
+    margin-bottom: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
 }
-.logo span {
+.logo button span {
     color: #fff;
 }
 
@@ -59,15 +63,18 @@ main {
     min-width: 60%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
     padding: 0px;
+    align-items: center;
+    gap: 40px;
 }
 
 .header-page__nav {
+    width:60%;
     display: flex;
+    flex-direction:row;
     align-items: flex-start;
     padding: 0px;
+    margin-left:0;
 }
 
 .header-page__ul {
@@ -84,7 +91,7 @@ main {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .header-page__li a:hover {
@@ -96,7 +103,7 @@ main {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .header-registration__login {
@@ -135,9 +142,151 @@ main {
     color: #a5a5a5;
 }
 
+/*-----BURGER_MENU-----*/
+
 .header-page__hamburger {
     display: none;
     margin-right: -15px;
+}
+
+.btn-menu {
+    background: none;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 15px;
+    border: 0;
+}
+  
+.btn-menu__box {
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+  
+.btn-menu__inner::before,
+.btn-menu__inner::after,
+.btn-menu__inner {
+    background: #fff;
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+}
+
+.btn-menu__inner {
+    display: block;
+    top: 40%;
+    position: relative;
+}
+  
+.btn-menu__inner::before,
+.btn-menu__inner::after {
+    content: '';
+    position: absolute;
+    left: 0;
+}
+  
+.btn-menu__inner::before {
+    top: -10px;
+}
+  
+.btn-menu__inner::after {
+    bottom: -10px;
+}
+
+.menu {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 77px;
+    left: 0;
+    transform: translateX(-100%);
+    transition: all 0.2s;
+}
+
+.menu.active {
+    transform: translateX(0);
+}
+
+.menu-content {
+    width: 40%;
+    height: 100%;
+    background: rgba(11, 20, 25, 0.9);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.4s;
+}
+
+.menu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.menu-header__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header-phone {
+    display: flex;
+}
+
+.header-phone__item {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    transition: background .2s, opacity .2s;
+}
+  
+.header-phone__item:hover {
+    color: rgb(240, 160, 12);
+}
+  
+.header-phone__item:active {
+    opacity: 0.8;
+}
+
+.dropdown-list__language-menu {
+    display: none;
+}
+
+@media (max-width: 1200px) {
+    .header-page__ul {
+        gap: 20px
+    }
+}
+  
+@media (max-width: 992px) {
+    .header-page__nav {
+      display: none;
+    }
+
+    .header-page__end {
+        display: none;
+    }
+  
+    .header-page__hamburger {
+      display: block;
+    }
+
+    .header-page__container {
+        width: 97%;
+    }
+  
+    .header-page {
+      padding: 10px 0;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .menu-content {
+        width: 100%;
+    }
 }
 
 /*-----LANGUAGE-----*/
@@ -211,6 +360,22 @@ main {
 .dropdown-none {
     display: none;
 }
+
+ 
+@media (max-width: 992px) {
+    .dropdown-list__language {
+        display: none;
+    }
+    
+    .dropdown-list__language-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 15px;
+    }
+}
+
 
 /*-----FOOTER-----*/
 

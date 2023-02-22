@@ -1,5 +1,5 @@
 import { $host } from "../../http";
-import { Product, ProductResponse } from "../../models/Product";
+import { Product } from "../../models/Product";
 import { AppDispatch } from "../store";
 import { productSlice } from "./ProductSlice";
 

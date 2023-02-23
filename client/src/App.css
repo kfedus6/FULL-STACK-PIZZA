@@ -106,6 +106,16 @@ main {
     gap: 10px;
 }
 
+.header-account-icon span a {
+    cursor: pointer;
+    font-size: 18px;
+    color:#fff;
+}
+
+.header-account-icon span a:hover {
+    color:rgb(240, 160, 12);
+}
+
 .header-registration__login {
     display: flex;
     flex-direction: row;

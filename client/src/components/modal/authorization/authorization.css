@@ -23,8 +23,8 @@
     padding: 25px;
     background-color: #fff;
     border-radius: 15px;
-    width: 500px;
-    height: 450px;
+    width: 35%;
+    height: 70%;
     display: flex;
     justify-content: center;
     transition: all 1s;
@@ -59,4 +59,25 @@
 
 .modal-registration-form input {
     width: 90%;
+}
+ 
+@media (max-width: 1024px) {
+    .modal-log__reg-content {
+        width: 60%;
+        height: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-log__reg-content {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-log__reg-content {
+        width: 97%;
+        height: 97%;
+    }
 }

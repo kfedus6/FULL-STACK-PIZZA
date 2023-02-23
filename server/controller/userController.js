@@ -23,7 +23,13 @@ class UserController {
             const basket = await Basket.create({ userId: user.id })
             await user.save()
             await basket.save()
-            const token = jwt.sign({ userId: user.id, admin: user.admin }, process.env.CODE_SECRET, { expiresIn: '1h' })
+            const token = jwt.sign({
+                userId: user.id,
+                username: user.username,
+                email: user.email,
+                phone: user.phone,
+                admin: user.admin
+            }, process.env.CODE_SECRET, { expiresIn: '1h' })
 
             return res.json({ status: 200, token })
 
@@ -43,11 +49,18 @@ class UserController {
             }
 
             const validPassword = bcrypt.compareSync(password, user.password)
-            if (!validPassword) {
+            if (validPassword === false) {
                 return next(ApiError.badRequest('Incorrect password'))
             }
 
-            const token = jwt.sign({ userId: user.id, admin: user.admin }, process.env.CODE_SECRET, { expiresIn: '1h' })
+            const token = jwt.sign({
+                userId: user.id,
+                username: user.username,
+                email: user.email,
+                phone: user.phone,
+                admin: user.admin
+            }, process.env.CODE_SECRET, { expiresIn: '1h' })
+
             return res.json({ status: 200, token })
 
         } catch (e) {
@@ -58,7 +71,13 @@ class UserController {
 
     async authorization(req, res, next) {
         try {
-            const token = jwt.sign({ userId: req.user.id, admin: req.user.admin }, process.env.CODE_SECRET, { expiresIn: '1h' })
+            const token = jwt.sign({
+                userId: req.user.id,
+                username: req.user.username,
+                email: req.user.email,
+                phone: req.user.phone,
+                admin: req.user.admin
+            }, process.env.CODE_SECRET, { expiresIn: '1h' })
             return res.json({ status: 200, token })
         } catch (e) {
             console.log(e)

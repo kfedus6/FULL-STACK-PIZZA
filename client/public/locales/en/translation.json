@@ -13,5 +13,19 @@
         "baner_text_first": "from an Italian chef",
         "baner_text_second": "The best pizza in Lviv",
         "baner_button": "Choose"
+    },
+    "form": {
+        "form_name": "Name",
+        "form_phone": "Phone",
+        "form_password": "Password",
+        "form_error": "Mandatory field",
+        "name_error": "Minimum 3 characters",
+        "email_error": "Invalid email",
+        "phone_error": "Invalid phone number",
+        "password_error": "Password from 5-15 characters",
+        "register": "Or already have an account?",
+        "login": "Or don't have an account yet?",
+        "sign_in": "Sign in",
+        "sign_up": "Sign up"
     }
 }

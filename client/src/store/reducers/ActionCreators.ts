@@ -4,6 +4,7 @@ import { Product } from "../../models/Product";
 import { AppDispatch } from "../store";
 import { $host, $authHost } from "../../http";
 import jwt_decode from 'jwt-decode'
+import { User } from "../../models/User";
 
 // Fetch Product
 
@@ -19,9 +20,9 @@ export const fetchsProducts = () => async (dispatch: AppDispatch) => {
 
 //Fetch User
 
-export const fetchUserRegistration = (username: string, email: string, phone: string | number, password: string) => async (dispatch: AppDispatch) => {
+export const fetchUserRegistration = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await $host.post('pizza/user/registration', { username, phone, email, password })
+        const { data } = await $host.post<User>('pizza/user/registration', objUser)
         localStorage.setItem('token', data.token)
         const user: any = jwt_decode(data.token)
         dispatch(userSlice.actions.userFetchingRegistration({ is_admin: user.admin, user: user, is_login: true }))
@@ -30,9 +31,9 @@ export const fetchUserRegistration = (username: string, email: string, phone: st
     }
 }
 
-export const fetchUserLogin = (email: string, password: string) => async (dispatch: AppDispatch) => {
+export const fetchUserLogin = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await $host.post('pizza/user/login', { email, password })
+        const { data } = await $host.post('pizza/user/login', objUser)
         localStorage.setItem('token', data.token)
         const user: any = jwt_decode(data.token)
         dispatch(userSlice.actions.userFetchingLogin({ is_admin: user.admin, user: user, is_login: true }))

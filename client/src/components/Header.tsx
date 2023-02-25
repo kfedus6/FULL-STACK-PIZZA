@@ -27,8 +27,8 @@ const Header = () => {
                 </div>
                 <nav className="header-page__nav">
                     <ul className="header-page__ul">
-                        <li className="header-page__li"><NavLink to='/'>{t('header.first_link')}</NavLink></li>
-                        <li className="header-page__li"><NavLink to='/pizza'>{t('header.second_link')}</NavLink></li>
+                        <li className="header-page__li"><a href='#homeTop'>{t('header.first_link')}</a></li>
+                        <li className="header-page__li"><a href='#pizzaHome'>{t('header.second_link')}</a></li>
                         <li className="header-page__li"><NavLink to='/about us'>{t('header.third_link')}</NavLink></li>
                         <li className="header-page__li"><NavLink to='/contacts'>{t('header.fourth_link')}</NavLink></li>
                     </ul>
@@ -72,7 +72,7 @@ const Header = () => {
                 isShow={isShow}
                 setIsShow={setIsShow}
             />
-        </div>
+        </div >
     )
 }
 

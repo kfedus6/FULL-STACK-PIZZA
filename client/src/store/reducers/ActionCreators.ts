@@ -5,18 +5,8 @@ import { AppDispatch } from "../store";
 import { $host, $authHost } from "../../http";
 import jwt_decode from 'jwt-decode'
 import { User } from "../../models/User";
-
-// Fetch Product
-
-export const fetchsProducts = () => async (dispatch: AppDispatch) => {
-    try {
-        dispatch(productSlice.actions.productFetching)
-        const response = await $host.get<Product[]>('pizza/product')
-        dispatch(productSlice.actions.productFetchingSuccess(response.data))
-    } catch (e: string | undefined | any) {
-        dispatch(productSlice.actions.productFetchingError(e.message))
-    }
-}
+import { typeProductSlice } from "./TypeProductSlice";
+import { TypeProduct } from "../../models/TypeProduct";
 
 //Fetch User
 
@@ -55,4 +45,27 @@ export const fetchUserAuthorization = () => async (dispatch: AppDispatch) => {
 export const fetchUserExit = () => async (dispatch: AppDispatch) => {
     localStorage.removeItem('token')
     dispatch(userSlice.actions.userFetchingLogin({ is_admin: false, user: {}, is_login: false }))
+}
+
+// Fetch Product
+
+export const fetchProducts = () => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(productSlice.actions.productFetching)
+        const response = await $host.get<Product[]>('pizza/product')
+        dispatch(productSlice.actions.productFetchingSuccess(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(productSlice.actions.productFetchingError(e.message))
+    }
+}
+
+//Fetch typeProduct
+
+export const fetchTypesProduct = () => async (dispatch: AppDispatch) => {
+    try {
+        const response = await $host.get<TypeProduct[]>('pizza/typeProduct')
+        dispatch(typeProductSlice.actions.typeProductFetchingGet(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(typeProductSlice.actions.typeProductFetchingError(e.message))
+    }
 }

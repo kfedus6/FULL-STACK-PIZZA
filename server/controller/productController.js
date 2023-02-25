@@ -7,12 +7,12 @@ const { db } = require('../models/Product')
 class ProductController {
     async createProduct(req, res, next) {
         try {
-            const { title, description, price, } = req.body
+            const { title, description, price, typeId } = req.body
             const { img } = req.files
             const fileNameImg = uuid.v4() + '.jpg'
             img.mv(path.resolve(__dirname, '..', 'static', fileNameImg))
 
-            const product = await Product.create({ title: title, description: description, price: price, status: 1, img: fileNameImg })
+            const product = await Product.create({ title: title, description: description, price: price, status: 1, img: fileNameImg, typeId: typeId })
             await product.save()
 
             return res.json({ status: 200, product })
@@ -28,7 +28,7 @@ class ProductController {
             let { limit, page } = req.body
 
             if (limit == undefined) {
-                limit = 3
+                limit = 6
             }
 
             if (page == undefined) {

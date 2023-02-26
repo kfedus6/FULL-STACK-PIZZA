@@ -49,10 +49,14 @@ export const fetchUserExit = () => async (dispatch: AppDispatch) => {
 
 // Fetch Product
 
-export const fetchProducts = () => async (dispatch: AppDispatch) => {
+export const fetchProducts = (data: any = {}) => async (dispatch: AppDispatch) => {
     try {
         dispatch(productSlice.actions.productFetching)
-        const response = await $host.get<Product[]>('pizza/product')
+        const response = await $host.get<Product[]>('pizza/product', {
+            params: {
+                ...data
+            }
+        })
         dispatch(productSlice.actions.productFetchingSuccess(response.data))
     } catch (e: string | undefined | any) {
         dispatch(productSlice.actions.productFetchingError(e.message))

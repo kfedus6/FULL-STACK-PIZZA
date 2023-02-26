@@ -44,11 +44,11 @@ main {
     flex-direction: row;
     margin: auto;
     justify-content: space-between;
-    width: 70%;
+    width: 80%;
 }
 
 .logo button {
-    color: rgb(240, 160, 12);
+    color: #ffb300;
     margin-bottom: 5px;
     background: transparent;
     border: none;
@@ -95,7 +95,7 @@ main {
 }
 
 .header-page__li a:hover {
-    color: rgb(240, 160, 12);
+    color: #ffb300;
     transition: all ease 0.3s;
 }
 
@@ -113,7 +113,7 @@ main {
 }
 
 .header-account-icon span a:hover {
-    color:rgb(240, 160, 12);
+    color:#ffb300;
 }
 
 .header-registration__login {
@@ -128,7 +128,7 @@ main {
 
 .header-registration__login div span {
     cursor: pointer;
-    color: rgb(240, 160, 12);
+    color: #ffb300;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
@@ -137,7 +137,7 @@ main {
 }
 
 .header-registration__login div span:hover {
-    color: rgb(184, 141, 61);
+    color: #ffa000;
     transition: all ease 0.3s;
 }
 
@@ -254,7 +254,7 @@ main {
 }
   
 .header-phone__item:hover {
-    color: rgb(240, 160, 12);
+    color: #ffb300;
 }
   
 .header-phone__item:active {
@@ -343,7 +343,7 @@ main {
 }
 
 .titte-language:hover {
-    color: rgb(240, 160, 12);
+    color: #ffb300;
     transition: all ease 0.3s;
 }
 

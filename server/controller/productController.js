@@ -25,7 +25,7 @@ class ProductController {
 
     async getProducts(req, res, next) {
         try {
-            let { limit, page } = req.body
+            let { limit, page } = req.query
 
             if (limit == undefined) {
                 limit = 6
@@ -38,7 +38,7 @@ class ProductController {
             let products = []
 
             const count = await Product.find().count()
-            products = await Product.find().skip(page * limit).limit(limit)
+            products = await Product.find().skip((page - 1) * limit).limit(limit)
 
             return res.json({ status: 200, products, count })
 

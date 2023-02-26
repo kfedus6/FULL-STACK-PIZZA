@@ -4,7 +4,9 @@ const PizzaItem = ({ item }: any) => {
     return (
         <div className='catalog-item'>
             <div className='product catalog-product'>
-                <img src={process.env.REACT_APP_API_URL + item.img} alt="pizz" className='product-img' />
+                <div className='test'>
+                    <img src={process.env.REACT_APP_API_URL + item.img} alt="pizz" className='product-img' />
+                </div>
                 <div className='product-content'>
                     <h3 className='product-title'>{item.title}</h3>
                     <p className='product-description'>{item.description}</p>
@@ -20,7 +22,9 @@ const PizzaItem = ({ item }: any) => {
                             <span className='product-price__value'>{item.price}</span>
                             <span className='product-currency'>&#8372;</span>
                         </div>
-                        <button className='btn product-btn' type="button">заказать</button>
+                        <div className='product-bottom-btn'>
+                            <button className='btn product-btn' type="button">заказать</button>
+                        </div>
                     </div>
                 </div>
             </div>

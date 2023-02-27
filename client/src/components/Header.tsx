@@ -12,12 +12,13 @@ const Header = () => {
     const [burgerCheck, setBurgerCheck] = useState<boolean>(false)
     const [isShow, setIsShow] = useState<boolean>(false)
     const [isRegistration, setIsRegistration] = useState<boolean>(true);
+    const [dropdownCheckAdmin, setDropdownCheckAdmin] = useState<boolean>(false)
 
     const { t } = useTranslation()
 
     const navigate = useNavigate()
 
-    const { is_login }: UserState = useAppSelector(state => state.userSlice)
+    const { is_login, is_admin }: UserState = useAppSelector(state => state.userSlice)
 
     return (
         <div className="container header-page__container">
@@ -27,10 +28,23 @@ const Header = () => {
                 </div>
                 <nav className="header-page__nav">
                     <ul className="header-page__ul">
-                        <li className="header-page__li"><a href='#homeTop'>{t('header.first_link')}</a></li>
+                        <li className="header-page__li"><NavLink to='/'>{t('header.first_link')}</NavLink></li>
                         <li className="header-page__li"><a href='#pizzaHome'>{t('header.second_link')}</a></li>
                         <li className="header-page__li"><NavLink to='/about us'>{t('header.third_link')}</NavLink></li>
                         <li className="header-page__li"><NavLink to='/contacts'>{t('header.fourth_link')}</NavLink></li>
+                        {is_admin
+                            ?
+                            <li className='header-page__li' onClick={() => setDropdownCheckAdmin(!dropdownCheckAdmin)}>
+                                <a href="#">Admin</a>
+                                <div className={dropdownCheckAdmin ? 'header-admin__list' : 'dropdown-none'}>
+                                    <ul className='header-admin__dropdown'>
+                                        <li onClick={() => setDropdownCheckAdmin(false)} className="header-page__li"><NavLink to='/productAndType'>product</NavLink></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            :
+                            <></>
+                        }
                     </ul>
                 </nav>
             </div>
@@ -65,6 +79,8 @@ const Header = () => {
                 setIsShowRegistration={setIsShow}
                 burgerCheck={burgerCheck}
                 setBurgerCheck={setBurgerCheck}
+                dropdownCheckAdmin={dropdownCheckAdmin}
+                setDropdownCheckAdmin={setDropdownCheckAdmin}
             />
             <Authorization
                 isRegistration={isRegistration}

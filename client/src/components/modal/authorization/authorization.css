@@ -112,12 +112,12 @@
 }
 
 .form-register:hover {
-    border: 1px solid rgb(240, 160, 12);
+    border: 1px solid #ffb300;
     transition: all ease 0.4s;
 }
 
 .form-hook-registration input:focus {
-    border: 1px solid rgb(240, 160, 12);
+    border: 1px solid #ffb300;
     outline: none;
     transition: all ease 0.4s;
 }
@@ -159,7 +159,7 @@
 }
 
 .form-register__or-login button:hover {
-    color: rgb(240, 160, 12);
+    color: #ffb300;
     transition: all ease 0.4s;
 }
 .form-regisrer-btn {

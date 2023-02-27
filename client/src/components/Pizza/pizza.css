@@ -61,7 +61,7 @@
     color: #FFFFFF;
     border-right-color:#ffc107;
 }
-  
+
 .catalog-nav__item:last-of-type .catalog-nav__btn {
     border-right: 0;
 }

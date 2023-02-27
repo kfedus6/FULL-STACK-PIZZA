@@ -11,6 +11,7 @@ const Pizza = () => {
     const [page, setPage] = useState<number>(1)
     const [limit, setLimit] = useState<number>(6)
     const [totalCount, setTotalCount] = useState<number>()
+    const [typeId, setTypeId] = useState<number | undefined>(undefined)
 
     const dispatch = useAppDispatch()
 
@@ -19,8 +20,8 @@ const Pizza = () => {
 
     useEffect(() => {
         dispatch(fetchTypesProduct())
-        dispatch(fetchProducts({ page: page, limit: limit }))
-    }, [page, limit])
+        dispatch(fetchProducts({ page: page, limit: limit, typeId: typeId }))
+    }, [page, limit, typeId])
 
     useEffect(() => {
         if (count) setTotalCount(getPageCount(count, limit))
@@ -32,8 +33,8 @@ const Pizza = () => {
 
     return (
         <div className='page-pizza__home' id="pizzaHome">
-            <PizzaType types={types} />
-            <PizzaList products={products} page={page} totalCount={totalCount} handleChangePage={handleChangePage} />
+            <PizzaType types={types} typeId={typeId} setTypeId={setTypeId} />
+            <PizzaList products={products} page={page} totalCount={totalCount} handleChangePage={handleChangePage} count={count} />
         </div>
     )
 }

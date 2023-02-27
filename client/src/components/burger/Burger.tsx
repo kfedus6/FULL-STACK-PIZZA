@@ -7,12 +7,12 @@ import { useAppSelector } from '../../hooks/redux'
 import Authorization from '../modal/authorization/Authorization'
 
 
-const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistration, setIsRegistration }: any) => {
+const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistration, setIsRegistration, setDropdownCheckAdmin, dropdownCheckAdmin }: any) => {
     const [isShow, setIsShow] = useState<boolean>(false)
 
     const { t } = useTranslation()
 
-    const { is_login } = useAppSelector(state => state.userSlice)
+    const { is_login, is_admin } = useAppSelector(state => state.userSlice)
 
     return (
         <div className={burgerCheck ? 'menu active' : 'menu'} onClick={() => setBurgerCheck(false)}>
@@ -24,6 +24,19 @@ const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistra
                             <li onClick={() => setBurgerCheck(false)} className="header-page__li"><NavLink to='/pizza'>{t('header.second_link')}</NavLink></li>
                             <li onClick={() => setBurgerCheck(false)} className="header-page__li"><NavLink to='/about us'>{t('header.third_link')}</NavLink></li>
                             <li onClick={() => setBurgerCheck(false)} className="header-page__li"><NavLink to='/contacts'>{t('header.fourth_link')}</NavLink></li>
+                            {is_admin
+                                ?
+                                <li className='header-page__li' onClick={() => setDropdownCheckAdmin(!dropdownCheckAdmin)}>
+                                    <a href="#">Admin</a>
+                                    <div className={dropdownCheckAdmin ? 'header-admin__list' : 'dropdown-none'}>
+                                        <ul className='header-admin__dropdown'>
+                                            <li onClick={() => setDropdownCheckAdmin(false)} className="header-page__li"><NavLink to='/productAndType'>product</NavLink></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                :
+                                <></>
+                            }
                         </ul>
                     </nav>
                     {is_login === true

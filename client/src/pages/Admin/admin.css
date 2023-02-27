@@ -1,0 +1,179 @@
+.section-admin {
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.container-admin {
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    gap: 50px;
+}
+
+.admin-block {
+    display: flex;
+    width: 100%;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    gap: 20px;
+}
+
+.admin-title {
+    font-size: 26px;
+    font-weight: bold;
+    cursor: default;
+}
+
+.admin-form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 100%;
+}
+
+.admin-text {
+    box-sizing: border-box;
+    height: 48px;
+    width: 90%;
+    color: #FFFFFF;
+    background: rgba(11, 20, 25, 0.9);
+    border: 1px solid #3f3f3f;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.admin-select select {
+    width: 90%;
+    background: rgba(11, 20, 25, 0.9);
+    color: #FFFFFF;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.admin-select select option:hover {
+    background: #ffa000;
+}
+
+
+.admin-form-input label {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    padding: 0 0.3rem;
+    cursor: text;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #FFFFFF;
+    transition: top 100ms ease-in,left 100ms ease-in, font-size 100ms ease-in;
+    cursor: pointer;
+}
+
+.admin-text:hover {
+    border: 1px solid #ffb300;
+    transition: all ease 0.4s;
+}
+
+.admin-form-input input:focus {
+    border: 2px solid #ffb300;
+    outline: none;
+}
+
+.admin-form-input input:focus ~ label,
+.admin-text:not(:placeholder-shown).admin-text:not(:focus)~.admin-label {
+    top:-8px;
+    font-size: 13px;
+    background: rgba(11, 20, 25, 0.9);
+}
+
+.admin-form-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 50%;
+    gap: 20px;
+}
+
+.admin-btn {
+    width: 50%;
+}
+
+.admin-btn-size {
+    width: 40%;
+    margin-top: 20px;
+}
+
+.admin-btn button {
+    background-color: #ffb300;
+    color: #000;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    border-radius: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: .02em;
+    transition: background .2s;
+}
+
+.admin-btn-size button {
+    background-color: #ffb300;
+    color: #000;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    border-radius: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: .02em;
+    transition: background .2s;
+}
+
+.admin-btn button:hover {
+    background: #ffa000;
+}
+
+.admin-btn-size button:hover {
+    background: #ffa000;
+}
+
+
+@media (max-width:992px) {
+    .container-admin {
+        width: 97%;
+    }
+}
+
+@media (max-width:580px) {
+    .admin-block {
+        display: flex;
+        flex-direction: column;
+    }
+    .admin-form {
+        width: 100%;
+    }
+    .admin-form-type {
+        width: 100%;
+        margin-top: 40px;
+    }
+}

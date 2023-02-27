@@ -19,6 +19,8 @@ export const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
+        //Product
+        //GET
         productFetching(state) {
             state.isLoading = true
         },
@@ -32,6 +34,7 @@ export const productSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
         }
+        //POST
     }
 })
 

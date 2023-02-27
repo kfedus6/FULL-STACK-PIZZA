@@ -1,4 +1,5 @@
 const Product = require('../models/Product')
+const Size = require('../models/Size')
 const ApiError = require('../error/apiError')
 const uuid = require('uuid')
 const path = require('path')
@@ -25,7 +26,7 @@ class ProductController {
 
     async getProducts(req, res, next) {
         try {
-            let { limit, page } = req.query
+            let { limit, page, typeId } = req.query
 
             if (limit == undefined) {
                 limit = 6
@@ -36,9 +37,15 @@ class ProductController {
             }
 
             let products = []
+            let count
+            if (typeId == undefined) {
+                count = await Product.find().count()
+                products = await Product.find().skip((page - 1) * limit).limit(limit)
+            } else {
+                count = await Product.find({ typeId: typeId }).count()
+                products = await Product.find({ typeId: typeId }).skip((page - 1) * limit).limit(limit)
+            }
 
-            const count = await Product.find().count()
-            products = await Product.find().skip((page - 1) * limit).limit(limit)
 
             return res.json({ status: 200, products, count })
 

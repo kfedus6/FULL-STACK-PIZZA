@@ -63,6 +63,14 @@ export const fetchProducts = (data: any = {}) => async (dispatch: AppDispatch) =
     }
 }
 
+export const fetchCreateProduct = (objProduct: any) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await $authHost.post('pizza/product', objProduct)
+    } catch (e: string | undefined | any) {
+        dispatch(productSlice.actions.productCreateFetchingError(e.message))
+    }
+}
+
 //Fetch typeProduct
 
 export const fetchTypesProduct = () => async (dispatch: AppDispatch) => {

@@ -33,8 +33,17 @@ export const productSlice = createSlice({
         productFetchingError(state, action) {
             state.isLoading = false
             state.error = action.payload
-        }
+        },
+
         //POST
+        productCreateFetching(state, action) {
+            state.products = action.payload
+        },
+
+        productCreateFetchingError(state, action) {
+            state.isLoading = false
+            state.error = action.payload
+        }
     }
 })
 

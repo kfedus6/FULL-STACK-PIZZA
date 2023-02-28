@@ -8,13 +8,20 @@ const { db } = require('../models/Product')
 class ProductController {
     async createProduct(req, res, next) {
         try {
-            const { title, description, price, typeId } = req.body
+            let { title, description, price, typeId, info } = req.body
             const { img } = req.files
             const fileNameImg = uuid.v4() + '.jpg'
             img.mv(path.resolve(__dirname, '..', 'static', fileNameImg))
 
             const product = await Product.create({ title: title, description: description, price: price, status: 1, img: fileNameImg, typeId: typeId })
             await product.save()
+
+            if (info != undefined) {
+                info = JSON.parse(info)
+                for (let item of info) {
+                    await Size.create({ productId: product.id, size: item.size })
+                }
+            }
 
             return res.json({ status: 200, product })
 

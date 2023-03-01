@@ -1,10 +1,19 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-const PizzaItem = ({ item }: any) => {
+const PizzaItem = ({ item, is_admin }: any) => {
     return (
         <div className='catalog-item'>
             <div className='product catalog-product'>
-                <div className='test'>
+                {is_admin
+                    ?
+                    <div className='product-admin-update'>
+                        <NavLink to={`/productUpdate/${item._id}`}>Change</NavLink>
+                    </div>
+                    :
+                    <></>
+                }
+                <div className='product-image'>
                     <img src={process.env.REACT_APP_API_URL + item.img} alt="pizz" className='product-img' />
                 </div>
                 <div className='product-content'>
@@ -13,9 +22,9 @@ const PizzaItem = ({ item }: any) => {
                 </div>
                 <div className='product-footer'>
                     <div className='product-sizes'>
-                        <button className='product-size is-active' type="button">35см</button>
+                        <button className='product-size is-active' type="button">25см</button>
                         <button className='product-size' type="button">30см</button>
-                        <button className='product-size' type="button">25см</button>
+                        <button className='product-size' type="button">35см</button>
                     </div>
                     <div className='product-bottom'>
                         <div className='product-price'>

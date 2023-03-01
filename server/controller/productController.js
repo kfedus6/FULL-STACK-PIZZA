@@ -1,5 +1,4 @@
 const Product = require('../models/Product')
-const Size = require('../models/Size')
 const ApiError = require('../error/apiError')
 const uuid = require('uuid')
 const path = require('path')
@@ -8,20 +7,13 @@ const { db } = require('../models/Product')
 class ProductController {
     async createProduct(req, res, next) {
         try {
-            let { title, description, price, typeId, info } = req.body
+            let { title, description, price, typeId } = req.body
             const { img } = req.files
             const fileNameImg = uuid.v4() + '.jpg'
             img.mv(path.resolve(__dirname, '..', 'static', fileNameImg))
 
             const product = await Product.create({ title: title, description: description, price: price, status: 1, img: fileNameImg, typeId: typeId })
             await product.save()
-
-            if (info != undefined) {
-                info = JSON.parse(info)
-                for (let item of info) {
-                    await Size.create({ productId: product.id, size: item.size })
-                }
-            }
 
             return res.json({ status: 200, product })
 
@@ -53,26 +45,11 @@ class ProductController {
                 products = await Product.find({ typeId: typeId }).skip((page - 1) * limit).limit(limit)
             }
 
-
             return res.json({ status: 200, products, count })
 
         } catch (e) {
             console.log(e)
             return next(ApiError.internal('Get products error'))
-        }
-    }
-
-    async getProductId(req, res, next) {
-        try {
-            const { id } = req.params
-
-            const product = await Product.findOne({ _id: id })
-
-            return res.json({ status: 200, product })
-
-        } catch (e) {
-            console.log(e)
-            return next(ApiError.internal('Get product error'))
         }
     }
 

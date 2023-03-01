@@ -27,5 +27,15 @@
         "login": "Or don't have an account yet?",
         "sign_in": "Sign in",
         "sign_up": "Sign up"
+    },
+    "admin": {
+        "title_pizza": "Pizza",
+        "input_title": "Title",
+        "input_description": "Description",
+        "input_price": "Price",
+        "input_type": "Type",
+        "input_size": "Size",
+        "btn_add": "Add",
+        "btn_create": "Create"
     }
 }

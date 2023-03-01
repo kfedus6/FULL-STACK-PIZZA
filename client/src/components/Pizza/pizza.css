@@ -104,7 +104,17 @@
     height: 100%;
 }
 
-.test {
+.product-admin-update a {
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+.product-admin-update a:hover {
+    color: #ffa000;
+}
+
+.product-image {
     width:100%;
     padding-bottom: 15px;
 }

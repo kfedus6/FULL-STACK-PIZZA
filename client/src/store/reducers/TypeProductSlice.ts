@@ -19,6 +19,10 @@ export const typeProductSlice = createSlice({
             state.types = action.payload.typeProduct
         },
 
+        typeProductFetchingPost(state, action) {
+            state.types = action.payload
+        },
+
         typeProductFetchingError(state, action) {
             state.error = action.payload
         }

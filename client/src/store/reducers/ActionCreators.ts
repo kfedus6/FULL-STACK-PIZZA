@@ -66,6 +66,16 @@ export const fetchProducts = (data: any = {}) => async (dispatch: AppDispatch) =
 export const fetchCreateProduct = (objProduct: any) => async (dispatch: AppDispatch) => {
     try {
         const response = await $authHost.post('pizza/product', objProduct)
+        dispatch(productSlice.actions.productCreateFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(productSlice.actions.productCreateFetchingError(e.message))
+    }
+}
+
+export const fetchDeleteProduct = (id: any) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await $authHost.delete(`pizza/product/${id}`)
+        dispatch(productSlice.actions.productDeleteFetching(response.data))
     } catch (e: string | undefined | any) {
         dispatch(productSlice.actions.productCreateFetchingError(e.message))
     }
@@ -77,6 +87,15 @@ export const fetchTypesProduct = () => async (dispatch: AppDispatch) => {
     try {
         const response = await $host.get<TypeProduct[]>('pizza/typeProduct')
         dispatch(typeProductSlice.actions.typeProductFetchingGet(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(typeProductSlice.actions.typeProductFetchingError(e.message))
+    }
+}
+
+export const fetchTypeProduct = (type: any) => async (dispatch: AppDispatch) => {
+    try {
+        const response = await $authHost.post('pizza/typeProduct', { type })
+        dispatch(typeProductSlice.actions.typeProductFetchingPost(response.data))
     } catch (e: string | undefined | any) {
         dispatch(typeProductSlice.actions.typeProductFetchingError(e.message))
     }

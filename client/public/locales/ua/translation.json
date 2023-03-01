@@ -27,5 +27,15 @@
         "login": "Або у вас ще немає облікового запису?",
         "sign_in": "Увійти",
         "sign_up": "Зареєструватися"
+    },
+    "admin": {
+        "title_pizza": "Піца",
+        "input_title": "Назва",
+        "input_description": "Опис",
+        "input_price": "Ціна",
+        "input_type": "Типу",
+        "input_size": "Розмір",
+        "btn_add": "Добавити",
+        "btn_create": "Створити"
     }
 }

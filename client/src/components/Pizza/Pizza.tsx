@@ -17,6 +17,7 @@ const Pizza = () => {
 
     const { types }: any = useAppSelector(state => state.TypeProductSlice)
     const { products, count }: any = useAppSelector(state => state.productSlice)
+    const { is_admin }: any = useAppSelector(state => state.userSlice)
 
     useEffect(() => {
         dispatch(fetchTypesProduct())
@@ -34,7 +35,14 @@ const Pizza = () => {
     return (
         <div className='page-pizza__home' id="pizzaHome">
             <PizzaType types={types} typeId={typeId} setTypeId={setTypeId} />
-            <PizzaList products={products} page={page} totalCount={totalCount} handleChangePage={handleChangePage} count={count} />
+            <PizzaList
+                products={products}
+                page={page}
+                totalCount={totalCount}
+                handleChangePage={handleChangePage}
+                count={count}
+                is_admin={is_admin}
+            />
         </div>
     )
 }

@@ -43,6 +43,11 @@ export const productSlice = createSlice({
         productCreateFetchingError(state, action) {
             state.isLoading = false
             state.error = action.payload
+        },
+
+        //DELETE
+        productDeleteFetching(state, action) {
+
         }
     }
 })

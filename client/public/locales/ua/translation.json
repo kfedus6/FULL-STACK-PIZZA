@@ -36,6 +36,10 @@
         "input_type": "Типу",
         "input_size": "Розмір",
         "btn_add": "Добавити",
-        "btn_create": "Створити"
+        "btn_create": "Створити",
+        "btn_update": "Оновити",
+        "btn_active": "Активний",
+        "btn_notActive": "Не активний",
+        "btn_delete": "Видaлити"
     }
 }

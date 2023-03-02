@@ -18,30 +18,34 @@ export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        userFetchingRegistration(state, action) {
-            state = { ...action.payload }
-        },
-
-        userFetchingLogin(state, action) {
-            state.is_login = action.payload.is_login
-            state.is_admin = action.payload.is_admin
-            state.user = action.payload.user
-        },
-
-        userFetchingAuthorization(state, action) {
-            state.is_login = action.payload.is_login
-            state.is_admin = action.payload.is_admin
-            state.user = action.payload.user
-        },
-
-        userFetchingExit(state, action) {
-            state.is_login = action.payload.is_login
-            state.is_admin = action.payload.is_admin
-            state.user = action.payload.user
-        },
-
+        //Error 
         userFetchingError(state, action) {
             state.error = action.payload
+        },
+
+        //Registration,Login and Authorization
+        userFetchingRegistration(state, action) {
+            state.error = ''
+            state = { ...action.payload }
+        },
+        userFetchingLogin(state, action) {
+            state.error = ''
+            state.is_login = action.payload.is_login
+            state.is_admin = action.payload.is_admin
+            state.user = action.payload.user
+        },
+        userFetchingAuthorization(state, action) {
+            state.error = ''
+            state.is_login = action.payload.is_login
+            state.is_admin = action.payload.is_admin
+            state.user = action.payload.user
+        },
+        //Exit
+        userFetchingExit(state, action) {
+            state.error = ''
+            state.is_login = action.payload.is_login
+            state.is_admin = action.payload.is_admin
+            state.user = action.payload.user
         }
     }
 })

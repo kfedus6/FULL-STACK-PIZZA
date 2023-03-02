@@ -16,7 +16,7 @@ const AppRouter = () => {
                 <Route index element={<Home />} />
                 <Route path='account' element={<Account />} />
                 {is_admin ? <Route path='productAndType' element={<ProductAndTypeAdd />} /> : <></>}
-                {is_admin ? <Route path='productUpdate/:id' element={<ProductUpdate />} /> : <></>}
+                {is_admin ? <Route path='productUpdate/:id/:status' element={<ProductUpdate />} /> : <></>}
             </Route>
         </Routes>
     )

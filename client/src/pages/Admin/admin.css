@@ -154,8 +154,31 @@
 
 /*-----Update----- */
 
-.admin-update {
-    margin-top: 120px;
+.admin-delete {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.admin-delete button {
+    background-color: #ffb300;
+    color: #000;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    border-radius: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    border: 0;
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: .02em;
+    transition: background .2s;
+}
+
+.admin-delete button:hover {
+    background: #ffa000;
 }
 
 @media (max-width:992px) {
@@ -175,5 +198,10 @@
     .admin-form-type {
         width: 100%;
         margin-top: 40px;
+    }
+    .admin-delete {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
     }
 }

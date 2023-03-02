@@ -36,6 +36,10 @@
         "input_type": "Type",
         "input_size": "Size",
         "btn_add": "Add",
-        "btn_create": "Create"
+        "btn_create": "Create",
+        "btn_update": "Update",
+        "btn_active": "Active",
+        "btn_notActive": "Not active",
+        "btn_delete": "Delelte"
     }
 }

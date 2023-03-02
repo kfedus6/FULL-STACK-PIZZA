@@ -54,7 +54,30 @@ class ProductController {
     }
 
     async putProductId(req, res, next) {
+        try {
+            const { id } = req.params
+            const { title, description, price, status } = req.body
+            const newProduct = {}
+            if (status) {
+                newProduct = await Product.updateOne({ _id: id }, { $set: { status: status } })
+            } else {
+                let product = await Product.findOne({ _id: id })
+                newProduct = await Product.updateOne({ _id: id },
+                    {
+                        $set:
+                        {
+                            title: title ? title : product.title,
+                            description: description ? description : product.description,
+                            price: price ? price : product.price
+                        }
+                    })
+            }
 
+            return res.json({ status: 200, newProduct })
+        } catch (e) {
+            console.log(e)
+            return next(ApiError.internal('Update product error'))
+        }
     }
 
     async deleteProductId(req, res, next) {

@@ -98,6 +98,10 @@
     margin-top: 30px;
 }
 
+.opacity {
+    opacity: 0.4;
+}
+
 .product {
     display: flex;
     flex-direction: column;
@@ -116,7 +120,6 @@
 
 .product-image {
     width:100%;
-    padding-bottom: 15px;
 }
 
 .product-img {
@@ -162,6 +165,8 @@
     font-weight: 900;
     padding: 13px 33px;
     border-radius: 21px;
+    display: flex;
+    flex-direction: column;
 }
   
 .product-size.is-active {
@@ -203,6 +208,22 @@
     font-size: 18px;
     border: 0;
     cursor: pointer;
+    text-align: center;
+    letter-spacing: .02em;
+    transition: background .2s;
+}
+
+.product-btn-status {
+    background-color: rgb(214, 214, 214);
+    color: #000;
+    display: inline-block;
+    height: 55px;
+    width: 100%;
+    border-radius: 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    border: 0;
     text-align: center;
     letter-spacing: .02em;
     transition: background .2s;

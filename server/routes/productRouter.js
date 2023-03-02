@@ -5,7 +5,7 @@ const productController = require('../controller/productController')
 
 router.post('/', adminMiddleware(true), productController.createProduct)
 router.get('/', productController.getProducts)
-router.put('/:id')
+router.put('/:id', adminMiddleware(true), productController.putProductId)
 router.delete('/:id', adminMiddleware(true), productController.deleteProductId)
 
 module.exports = router

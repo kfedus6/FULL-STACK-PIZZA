@@ -51,7 +51,7 @@ export const fetchUserExit = () => async (dispatch: AppDispatch) => {
 
 export const fetchProducts = (data: any = {}) => async (dispatch: AppDispatch) => {
     try {
-        dispatch(productSlice.actions.productFetching)
+        dispatch(productSlice.actions.productFetchingLoading)
         const response = await $host.get<Product[]>('pizza/product', {
             params: {
                 ...data
@@ -65,19 +65,31 @@ export const fetchProducts = (data: any = {}) => async (dispatch: AppDispatch) =
 
 export const fetchCreateProduct = (objProduct: any) => async (dispatch: AppDispatch) => {
     try {
+        dispatch(productSlice.actions.productFetchingLoading)
         const response = await $authHost.post('pizza/product', objProduct)
         dispatch(productSlice.actions.productCreateFetching(response.data))
     } catch (e: string | undefined | any) {
-        dispatch(productSlice.actions.productCreateFetchingError(e.message))
+        dispatch(productSlice.actions.productFetchingError(e.message))
     }
 }
 
 export const fetchDeleteProduct = (id: any) => async (dispatch: AppDispatch) => {
     try {
+        dispatch(productSlice.actions.productFetchingLoading)
         const response = await $authHost.delete(`pizza/product/${id}`)
         dispatch(productSlice.actions.productDeleteFetching(response.data))
     } catch (e: string | undefined | any) {
-        dispatch(productSlice.actions.productCreateFetchingError(e.message))
+        dispatch(productSlice.actions.productFetchingError(e.message))
+    }
+}
+
+export const fetchUpdateProduct = (id: any, objProduct: any) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(productSlice.actions.productFetchingLoading)
+        const response = await $authHost.put(`pizza/product/${id}`, objProduct)
+        dispatch(productSlice.actions.productCreateFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(productSlice.actions.productFetchingError(e.message))
     }
 }
 
@@ -85,6 +97,7 @@ export const fetchDeleteProduct = (id: any) => async (dispatch: AppDispatch) => 
 
 export const fetchTypesProduct = () => async (dispatch: AppDispatch) => {
     try {
+        dispatch(typeProductSlice.actions.typeProductFetchingLoading)
         const response = await $host.get<TypeProduct[]>('pizza/typeProduct')
         dispatch(typeProductSlice.actions.typeProductFetchingGet(response.data))
     } catch (e: string | undefined | any) {
@@ -94,6 +107,7 @@ export const fetchTypesProduct = () => async (dispatch: AppDispatch) => {
 
 export const fetchTypeProduct = (type: any) => async (dispatch: AppDispatch) => {
     try {
+        dispatch(typeProductSlice.actions.typeProductFetchingLoading)
         const response = await $authHost.post('pizza/typeProduct', { type })
         dispatch(typeProductSlice.actions.typeProductFetchingPost(response.data))
     } catch (e: string | undefined | any) {

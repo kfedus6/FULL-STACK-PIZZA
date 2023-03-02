@@ -19,35 +19,39 @@ export const productSlice = createSlice({
     name: 'product',
     initialState,
     reducers: {
-        //Product
-        //GET
-        productFetching(state) {
+        //Loading and Error
+        productFetchingLoading(state) {
             state.isLoading = true
-        },
-        productFetchingSuccess(state, action) {
-            state.isLoading = false
-            state.error = ''
-            state.products = action.payload.products
-            state.count = action.payload.count
         },
         productFetchingError(state, action) {
             state.isLoading = false
             state.error = action.payload
         },
 
+        //GET
+        productFetchingSuccess(state, action) {
+            state.isLoading = false
+            state.error = ''
+            state.products = action.payload.products
+            state.count = action.payload.count
+        },
+
         //POST
         productCreateFetching(state, action) {
             state.products = action.payload
-        },
-
-        productCreateFetchingError(state, action) {
             state.isLoading = false
-            state.error = action.payload
+            state.error = ''
         },
 
         //DELETE
-        productDeleteFetching(state, action) {
-
+        productDeleteFetching(state) {
+            state.isLoading = false
+            state.error = ''
+        },
+        //PUT
+        productPutFetching(state) {
+            state.isLoading = false
+            state.error = ''
         }
     }
 })

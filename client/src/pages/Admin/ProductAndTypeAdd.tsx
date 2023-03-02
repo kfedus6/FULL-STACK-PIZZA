@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchCreateProduct, fetchTypeProduct } from '../../store/reducers/ActionCreators'
 
@@ -14,6 +15,7 @@ const ProductAndTypeAdd = () => {
     const [img, setImg] = useState<any>('')
 
     const { t }: any = useTranslation()
+    const navigate = useNavigate()
 
     const { types }: any = useAppSelector(state => state.TypeProductSlice)
     const dispatch = useAppDispatch()
@@ -31,6 +33,7 @@ const ProductAndTypeAdd = () => {
         setPrice('')
         setTypeId('')
         setImg('')
+        navigate(-1)
     }
 
     const createType = async () => {

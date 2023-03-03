@@ -9,7 +9,15 @@ import './admin.css'
 const ProductUpdate = () => {
     const [title, setTitle] = useState<any>('')
     const [description, setDescriprion] = useState<any>('')
-    const [price, setPrice] = useState<any>('')
+    const [priceFirst, setPriceFirst] = useState<any>('')
+    const [priceSecond, setPriceSecond] = useState<any>('')
+    const [priceThird, setPriceThird] = useState<any>('')
+    const [sizeFirst, setSizeFirst] = useState<any>('')
+    const [sizeSecond, setSizeSecond] = useState<any>('')
+    const [sizeThird, setSizeThird] = useState<any>('')
+    const [weightFirst, setWeightFirst] = useState<any>('')
+    const [weightSecond, setWeightSecond] = useState<any>('')
+    const [weightThird, setWeightThird] = useState<any>('')
 
     const { id, status }: any = useParams()
     const dispatch = useAppDispatch()
@@ -25,7 +33,15 @@ const ProductUpdate = () => {
         const formData = new FormData()
         formData.append('title', title)
         formData.append('description', description)
-        formData.append('price', price)
+        formData.append('priceFirst', priceFirst)
+        formData.append('priceSecond', priceSecond)
+        formData.append('priceThird', priceThird)
+        formData.append('sizeFirst', sizeFirst)
+        formData.append('sizeSecond', sizeSecond)
+        formData.append('sizeThird', sizeThird)
+        formData.append('weightFirst', weightFirst)
+        formData.append('weightSecond', weightSecond)
+        formData.append('weightThird', weightThird)
         formData.append('status', '')
         await dispatch(fetchUpdateProduct(id, formData))
         navigate(-1)
@@ -80,10 +96,98 @@ const ProductUpdate = () => {
                                 className='admin-text'
                                 placeholder=' '
                                 type="text"
-                                value={price}
-                                onChange={(e) => setPrice(e.target.value)}
+                                value={priceFirst}
+                                onChange={(e) => setPriceFirst(e.target.value)}
                             />
-                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_price')}</label>
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_price_first')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={priceSecond}
+                                onChange={(e) => setPriceSecond(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_price_second')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={priceThird}
+                                onChange={(e) => setPriceThird(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_price_third')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={sizeFirst}
+                                onChange={(e) => setSizeFirst(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_size_first')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={sizeSecond}
+                                onChange={(e) => setSizeSecond(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_size_second')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={sizeThird}
+                                onChange={(e) => setSizeThird(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_size_third')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={weightFirst}
+                                onChange={(e) => setWeightFirst(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_weight_first')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={weightSecond}
+                                onChange={(e) => setWeightSecond(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_weight_second')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-third'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={weightThird}
+                                onChange={(e) => setWeightThird(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-third'>{t('admin.input_weight_third')}</label>
                         </div>
                         <div className='admin-delete'>
                             <button onClick={updateProduct}>{t('admin.btn_update')}</button>

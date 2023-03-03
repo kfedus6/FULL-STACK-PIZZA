@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const PizzaItem = ({ item, is_admin }: any) => {
+    const [changePrice, setChangePrice] = useState<any>(22)
+
     return (
         <div className={item.status ? 'catalog-item' : 'catalog-item opacity'}>
             <div className='product catalog-product'>
@@ -22,22 +24,22 @@ const PizzaItem = ({ item, is_admin }: any) => {
                 </div>
                 <div className='product-footer'>
                     <div className='product-sizes'>
-                        <button className='product-size is-active' type="button">
-                            <span>310г</span>
-                            <span>25см</span>
+                        <button onClick={() => setChangePrice(item.sizeFirst)} className={changePrice == item.sizeFirst ? 'product-size is-active' : 'product-size'} type="button">
+                            <span>{item.weightFirst}г</span>
+                            <span>{item.sizeFirst}см</span>
                         </button>
-                        <button className='product-size' type="button">
-                            <span>479г</span>
-                            <span>30см</span>
+                        <button onClick={() => setChangePrice(item.sizeSecond)} className={changePrice == item.sizeSecond ? 'product-size is-active' : 'product-size'} type="button">
+                            <span>{item.weightSecond}г</span>
+                            <span>{item.sizeSecond}см</span>
                         </button>
-                        <button className='product-size' type="button">
-                            <span>821г</span>
-                            <span>40см</span>
+                        <button onClick={() => setChangePrice(item.sizeThird)} className={changePrice == item.sizeThird ? 'product-size is-active' : 'product-size'} type="button">
+                            <span>{item.weightThird}г</span>
+                            <span>{item.sizeThird}см</span>
                         </button>
                     </div>
                     <div className='product-bottom'>
                         <div className='product-price'>
-                            <span className='product-price__value'>{item.price}</span>
+                            <span className='product-price__value'>{changePrice == item.sizeFirst ? item.priceFirst : changePrice == item.sizeSecond ? item.priceSecond : item.priceThird}</span>
                             <span className='product-currency'>&#8372;</span>
                         </div>
                         {item.status

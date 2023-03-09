@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom'
-import AppRouter from './components/AppRouter';
+import AppRouter from './components/AppRouter/AppRouter'
 import { useAppDispatch } from './hooks/redux';
 import { fetchUserAuthorization } from './store/reducers/ActionCreators';
 

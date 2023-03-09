@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import SetLanguage from '../SetLanguage'
+import SetLanguage from '../SetLanguage/SetLanguage'
 import { FaUser } from 'react-icons/fa'
 import { useAppSelector } from '../../hooks/redux'
 import Authorization from '../modal/authorization/Authorization'

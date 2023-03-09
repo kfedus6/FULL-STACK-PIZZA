@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
+import AboutUs from '../../components/AboutUs/AboutUs'
 import Pizza from '../../components/Pizza/Pizza'
 
 import './home.css'
@@ -19,6 +20,7 @@ const Home = () => {
                 </div>
             </section>
             <Pizza />
+            <AboutUs />
         </>
     )
 }

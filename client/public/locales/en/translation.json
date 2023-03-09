@@ -48,5 +48,9 @@
         "btn_active": "Active",
         "btn_notActive": "Not active",
         "btn_delete": "Delelte"
+    },
+    "about": {
+        "title": "About us",
+        "text": "We will deliver hot pizza to you in less than an hour or pizza for free. We prepare pizza only from fresh products. We buy fresh vegetables, mushrooms and meat every day."
     }
 }

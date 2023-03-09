@@ -1,11 +1,11 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { useAppSelector } from '../hooks/redux';
-import Account from '../pages/Account/Account';
-import ProductAndTypeAdd from '../pages/Admin/ProductAndTypeAdd';
-import ProductUpdate from '../pages/Admin/ProductUpdate';
-import Home from '../pages/Home/Home';
-import Layout from './Layout';
+import { useAppSelector } from '../../hooks/redux';
+import Account from '../../pages/Account/Account'
+import ProductAndTypeAdd from '../../pages/Admin/ProductAndTypeAdd';
+import ProductUpdate from '../../pages/Admin/ProductUpdate';
+import Home from '../../pages/Home/Home';
+import Layout from '../Layout/Layout';
 
 const AppRouter = () => {
     const { is_admin }: any = useAppSelector(state => state.userSlice)

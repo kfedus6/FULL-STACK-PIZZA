@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
-import SetLanguage from './SetLanguage';
+import SetLanguage from '../SetLanguage/SetLanguage';
 import { useTranslation } from 'react-i18next'
-import Burger from './burger/Burger';
-import { UserState } from '../store/reducers/UserSlice';
-import { useAppSelector } from '../hooks/redux';
+import Burger from '../burger/Burger';
+import { UserState } from '../../store/reducers/UserSlice';
+import { useAppSelector } from '../../hooks/redux';
 import { FaUser } from 'react-icons/fa';
-import Authorization from './modal/authorization/Authorization';
+import Authorization from '../modal/authorization/Authorization';
 
 const Header = () => {
     const [burgerCheck, setBurgerCheck] = useState<boolean>(false)
@@ -30,7 +30,7 @@ const Header = () => {
                     <ul className="header-page__ul">
                         <li className="header-page__li"><NavLink to='/'>{t('header.first_link')}</NavLink></li>
                         <li className="header-page__li"><a href='#pizzaHome'>{t('header.second_link')}</a></li>
-                        <li className="header-page__li"><NavLink to='/about us'>{t('header.third_link')}</NavLink></li>
+                        <li className="header-page__li"><a href='#pizzaAboutUs'>{t('header.third_link')}</a></li>
                         <li className="header-page__li"><NavLink to='/contacts'>{t('header.fourth_link')}</NavLink></li>
                         {is_admin
                             ?

@@ -52,5 +52,11 @@
     "about": {
         "title": "About us",
         "text": "We will deliver hot pizza to you in less than an hour or pizza for free. We prepare pizza only from fresh products. We buy fresh vegetables, mushrooms and meat every day."
+    },
+    "contact": {
+        "title": "Contacts",
+        "title_address": "Address",
+        "title_phone": "Phone",
+        "title_social": "Social networks"
     }
 }

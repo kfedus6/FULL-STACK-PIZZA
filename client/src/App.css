@@ -405,17 +405,24 @@ main {
 
 
 /*-----FOOTER-----*/
-
 footer {
+    background: linear-gradient(to top, #2d2c2c, #1f1f1f);
+    padding: 25px 0;
     margin-top: auto;
     z-index: 100;
 }
 
 footer div {
     height: 50px;
-    background: rgba(11, 20, 25, 0.9);
-    color: #fff;
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+footer div span {
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(255, 255, 255, .3);
+    text-align: center;
+    font-weight: 900;
+    font-size: 18px;
 }

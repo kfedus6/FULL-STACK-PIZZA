@@ -3,9 +3,12 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchProducts, fetchTypesProduct } from '../../store/reducers/ActionCreators'
 import PizzaList from './PizzaList'
 import PizzaType from './PizzaType'
+import { getPageCount } from '../../utils/page'
+import { TypeProductState } from '../../store/reducers/TypeProductSlice'
+import { ProductState } from '../../store/reducers/ProductSlice'
+import { UserState } from '../../store/reducers/UserSlice'
 
 import './pizza.css'
-import { getPageCount } from '../../utils/page'
 
 const Pizza = () => {
     const [page, setPage] = useState<number>(1)
@@ -15,9 +18,9 @@ const Pizza = () => {
 
     const dispatch = useAppDispatch()
 
-    const { types }: any = useAppSelector(state => state.TypeProductSlice)
-    const { products, count }: any = useAppSelector(state => state.productSlice)
-    const { is_admin }: any = useAppSelector(state => state.userSlice)
+    const { types }: TypeProductState = useAppSelector(state => state.TypeProductSlice)
+    const { products, count }: ProductState = useAppSelector(state => state.productSlice)
+    const { is_admin }: UserState = useAppSelector(state => state.userSlice)
 
     useEffect(() => {
         dispatch(fetchTypesProduct())

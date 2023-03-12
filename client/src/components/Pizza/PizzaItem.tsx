@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 const PizzaItem = ({ item, is_admin }: any) => {
-    const [changePrice, setChangePrice] = useState<any>(22)
+    const [changePrice, setChangePrice] = useState<number>(22)
 
     return (
         <div className={item.status ? 'catalog-item' : 'catalog-item opacity'}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import AboutUs from '../../components/AboutUs/AboutUs'
+import Contact from '../../components/Contact/Contact'
 import Pizza from '../../components/Pizza/Pizza'
 
 import './home.css'
@@ -21,6 +22,7 @@ const Home = () => {
             </section>
             <Pizza />
             <AboutUs />
+            <Contact />
         </>
     )
 }

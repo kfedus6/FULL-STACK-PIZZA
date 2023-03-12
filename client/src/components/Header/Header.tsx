@@ -31,7 +31,7 @@ const Header = () => {
                         <li className="header-page__li"><NavLink to='/'>{t('header.first_link')}</NavLink></li>
                         <li className="header-page__li"><a href='#pizzaHome'>{t('header.second_link')}</a></li>
                         <li className="header-page__li"><a href='#pizzaAboutUs'>{t('header.third_link')}</a></li>
-                        <li className="header-page__li"><NavLink to='/contacts'>{t('header.fourth_link')}</NavLink></li>
+                        <li className="header-page__li"><a href='#pizzaContact'>{t('header.fourth_link')}</a></li>
                         {is_admin
                             ?
                             <li className='header-page__li' onClick={() => setDropdownCheckAdmin(!dropdownCheckAdmin)}>

@@ -5,6 +5,7 @@ import SetLanguage from '../SetLanguage/SetLanguage'
 import { FaUser } from 'react-icons/fa'
 import { useAppSelector } from '../../hooks/redux'
 import Authorization from '../modal/authorization/Authorization'
+import { BsBasket2Fill } from 'react-icons/bs'
 
 
 const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistration, setIsRegistration, setDropdownCheckAdmin, dropdownCheckAdmin }: any) => {
@@ -50,6 +51,19 @@ const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistra
                             <span>|</span>
                             <div onClick={() => { setIsShowRegistration(true); setIsRegistration(true); setBurgerCheck(false) }}><span>{t('header.registration')}</span></div>
                         </div>
+                    }
+                    {
+                        is_login
+                            ?
+                            <div className='header-basket'>
+                                <span>
+                                    <NavLink to='/basket'>
+                                        <BsBasket2Fill />
+                                    </NavLink>
+                                </span>
+                            </div>
+                            :
+                            <></>
                     }
                     <div className="header-phone">
                         <a className="header-phone__item header-page__phone" href="tel:+79999999999">+7 (999) 999-99-99</a>

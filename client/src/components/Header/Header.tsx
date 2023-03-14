@@ -7,6 +7,7 @@ import { UserState } from '../../store/reducers/UserSlice';
 import { useAppSelector } from '../../hooks/redux';
 import { FaUser } from 'react-icons/fa';
 import Authorization from '../modal/authorization/Authorization';
+import { BsBasket2Fill } from 'react-icons/bs'
 
 const Header = () => {
     const [burgerCheck, setBurgerCheck] = useState<boolean>(false)
@@ -52,17 +53,31 @@ const Header = () => {
                 <div className='header-language'>
                     <SetLanguage />
                 </div>
-                {is_login === true
-                    ?
-                    <div className='header-account-icon'>
-                        <span><NavLink to='/account'><FaUser /></NavLink></span>
-                    </div>
-                    :
-                    <div className='header-registration__login'>
-                        <div onClick={() => { setIsRegistration(false); setIsShow(true) }}><span>{t('header.login')}</span></div>
-                        <span>|</span>
-                        <div onClick={() => { setIsRegistration(true); setIsShow(true) }}><span>{t('header.registration')}</span></div>
-                    </div>
+                {
+                    is_login === true
+                        ?
+                        <div className='header-account-icon'>
+                            <span><NavLink to='/account'><FaUser /></NavLink></span>
+                        </div>
+                        :
+                        <div className='header-registration__login'>
+                            <div onClick={() => { setIsRegistration(false); setIsShow(true) }}><span>{t('header.login')}</span></div>
+                            <span>|</span>
+                            <div onClick={() => { setIsRegistration(true); setIsShow(true) }}><span>{t('header.registration')}</span></div>
+                        </div>
+                }
+                {
+                    is_login
+                        ?
+                        <div className='header-basket'>
+                            <span>
+                                <NavLink to='/basket'>
+                                    <BsBasket2Fill />
+                                </NavLink>
+                            </span>
+                        </div>
+                        :
+                        <></>
                 }
             </div>
             <div className="header-page__hamburger">

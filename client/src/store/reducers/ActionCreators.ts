@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode'
 import { User } from "../../models/User";
 import { typeProductSlice } from "./TypeProductSlice";
 import { TypeProduct } from "../../models/TypeProduct";
+import { basketSlice } from "./BasketSlice";
 
 //Fetch User
 
@@ -112,5 +113,17 @@ export const fetchTypeProduct = (type: any) => async (dispatch: AppDispatch) => 
         dispatch(typeProductSlice.actions.typeProductFetchingPost(response.data))
     } catch (e: string | undefined | any) {
         dispatch(typeProductSlice.actions.typeProductFetchingError(e.message))
+    }
+}
+
+//Fetch Basket Product
+
+export const fetchBasketProduct = (id: any, userId: any, changePrice: any, changeWeight: any, changeSize: any) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(basketSlice.actions.basketProductFetchingLoading)
+        const response = await $host.post(`pizza/basket/${id}`, { userId, changePrice, changeWeight, changeSize })
+        dispatch(basketSlice.actions.addBasketProductFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(basketSlice.actions.basketProductFetchingError(e.message))
     }
 }

@@ -48,6 +48,7 @@ export const productSlice = createSlice({
             state.isLoading = false
             state.error = ''
         },
+
         //PUT
         productPutFetching(state) {
             state.isLoading = false

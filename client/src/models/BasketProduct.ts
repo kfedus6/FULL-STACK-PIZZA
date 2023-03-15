@@ -1,6 +1,9 @@
 export interface BasketProduct {
-    userId: number,
-    product: number,
+    basketId: number,
+    productId: number,
     size: number,
-    weight: number
+    weight: number,
+    price: number,
+    image: string,
+    title: string
 }

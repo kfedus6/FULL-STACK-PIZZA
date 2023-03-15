@@ -7,7 +7,7 @@ class BasketController {
     async addBasketProduct(req, res, next) {
         try {
             const { id } = req.params
-            const { userId, changePrice, changeWeight, changeSize } = req.body
+            const { userId, changePrice, changeWeight, changeSize, img, title } = req.body
 
             const basket = await Basket.findOne({ userId: userId })
             const product = await Product.findOne({ _id: id })
@@ -17,7 +17,9 @@ class BasketController {
                 productId: product.id,
                 size: changeSize,
                 weight: changeWeight,
-                price: changePrice
+                price: changePrice,
+                image: img,
+                title: title
             })
             basketProduct.save()
 
@@ -30,7 +32,12 @@ class BasketController {
 
     async getBasketProduct(req, res, next) {
         try {
+            const { id } = req.params
 
+            const basket = await Basket.findOne({ userId: id })
+            const basketProduct = await BasketProduct.find({ basketId: basket.id })
+
+            return res.json({ status: 200, basketProduct })
         } catch (e) {
             console.log(e)
             return next(ApiError.internal('Get basket product error'))
@@ -39,7 +46,12 @@ class BasketController {
 
     async deleteBasketProduct(req, res, next) {
         try {
+            const { id } = req.params
 
+            const basketProductDelete = await BasketProduct.deleteOne({ _id: id })
+            const basketProduct = await BasketProduct.find()
+
+            return res.json({ status: 200, basketProduct })
         } catch (e) {
             console.log(e)
             return next(ApiError.internal('Delete basket product error'))
@@ -48,7 +60,13 @@ class BasketController {
 
     async deleteAllBasketProduct(req, res, next) {
         try {
+            const { id } = req.params
 
+            const basket = await Basket.findOne({ userId: id })
+            const basketProductDeleteAll = await BasketProduct.deleteMany({ basketId: basket.id })
+            const basketProduct = await BasketProduct.find()
+
+            return res.json({ status: 200, basketProduct })
         } catch (e) {
             console.log(e)
             return next(ApiError.internal('Delete all basket product error'))

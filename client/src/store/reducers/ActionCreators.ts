@@ -118,11 +118,41 @@ export const fetchTypeProduct = (type: any) => async (dispatch: AppDispatch) => 
 
 //Fetch Basket Product
 
-export const fetchBasketProduct = (id: any, userId: any, changePrice: any, changeWeight: any, changeSize: any) => async (dispatch: AppDispatch) => {
+export const fetchBasketProduct = (id: any, userId: any, changePrice: any, changeWeight: any, changeSize: any, img: any, title: any) => async (dispatch: AppDispatch) => {
     try {
         dispatch(basketSlice.actions.basketProductFetchingLoading)
-        const response = await $host.post(`pizza/basket/${id}`, { userId, changePrice, changeWeight, changeSize })
+        const response = await $host.post(`pizza/basket/${id}`, { userId, changePrice, changeWeight, changeSize, img, title })
         dispatch(basketSlice.actions.addBasketProductFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(basketSlice.actions.basketProductFetchingError(e.message))
+    }
+}
+
+export const fetchGetBasketProduct = (id: any,) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(basketSlice.actions.basketProductFetchingLoading)
+        const response = await $host.get(`pizza/basket/${id}`,)
+        dispatch(basketSlice.actions.getBasketProductFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(basketSlice.actions.basketProductFetchingError(e.message))
+    }
+}
+
+export const fetchDeleteBasketProduct = (id: any,) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(basketSlice.actions.basketProductFetchingLoading)
+        const response = await $host.delete(`pizza/basket/${id}`,)
+        dispatch(basketSlice.actions.deleteBasketProductFetching(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(basketSlice.actions.basketProductFetchingError(e.message))
+    }
+}
+
+export const fetchDeleteAllBasketProduct = (id: any,) => async (dispatch: AppDispatch) => {
+    try {
+        dispatch(basketSlice.actions.basketProductFetchingLoading)
+        const response = await $host.delete(`pizza/basket/products/${id}`,)
+        dispatch(basketSlice.actions.deleteBasketProductFetching(response.data))
     } catch (e: string | undefined | any) {
         dispatch(basketSlice.actions.basketProductFetchingError(e.message))
     }

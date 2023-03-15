@@ -59,7 +59,7 @@ const PizzaItem = ({ item, is_admin, addBasketPizza }: any) => {
                         {item.status
                             ?
                             <div className='product-bottom-btn'>
-                                <button onClick={() => addBasketPizza(item._id, changeSize, changeWeight, changePrice)} className='product-btn' type="button">{t('pizza.basket_btn')}</button>
+                                <button onClick={() => addBasketPizza(item._id, changeSize, changeWeight, changePrice, item.img, item.title)} className='product-btn' type="button">{t('pizza.basket_btn')}</button>
                             </div>
                             :
                             <div className='product-bottom-btn'>

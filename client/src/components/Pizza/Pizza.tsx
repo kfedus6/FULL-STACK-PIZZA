@@ -36,10 +36,10 @@ const Pizza = () => {
         setPage(value)
     }
 
-    const addBasketPizza = (id: number, changeSize: number, changeWeight: number, changePrice: number,) => {
+    const addBasketPizza = (id: number, changeSize: number, changeWeight: number, changePrice: number, img: string, title: string) => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
-        dispatch(fetchBasketProduct(id, user.userId, changePrice, changeWeight, changeSize))
+        dispatch(fetchBasketProduct(id, user.userId, changePrice, changeWeight, changeSize, img, title))
     }
 
     return (

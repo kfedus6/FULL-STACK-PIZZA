@@ -36,9 +36,21 @@ export const basketSlice = createSlice({
         getBasketProductFetching(state, action) {
             state.isLoading = false
             state.error = ''
-            state.basket = action.payload.basket
-        }
+            state.basket = action.payload.basketProduct
+        },
+
         //DELETE
+        deleteBasketProductFetching(state, action) {
+            state.isLoading = false
+            state.error = ''
+            state.basket = action.payload.basketProduct
+        },
+
+        deleteAllBasketProductFetching(state, action) {
+            state.isLoading = false
+            state.error = ''
+            state.basket = action.payload.basketProduct
+        }
     }
 })
 

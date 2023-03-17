@@ -1,7 +1,8 @@
 import React from 'react'
+import Loading from '../Loading/Loading'
 import BasketItem from './BasketItem'
 
-const BasketList = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct }: any) => {
+const BasketList = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct, visibilityModalBuy, setVisibilityModalBuy }: any) => {
 
     if (basket.length === 0) {
         return (
@@ -21,11 +22,17 @@ const BasketList = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo,
                     navigate={navigate}
                     changeBasketInfo={changeBasketInfo}
                     deleteProduct={deleteProduct}
+                    visibilityModalBuy={visibilityModalBuy}
+                    setVisibilityModalBuy={setVisibilityModalBuy}
                 />
             </div>
         )
     } else {
-        return <h1>loading</h1>
+        return (
+            <div className='basket-loading'>
+                <Loading />
+            </div>
+        )
     }
 }
 

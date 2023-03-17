@@ -2,7 +2,7 @@ import React, { Key } from 'react'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiTwotoneDelete } from 'react-icons/ai'
 
-const BasketItem = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct }: any) => {
+const BasketItem = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct, visibilityModalBuy, setVisibilityModalBuy }: any) => {
 
     return (
         <div className='cart-container'>
@@ -17,7 +17,6 @@ const BasketItem = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo,
                 <div className='cart-items'>
                     {basket.map((item: any, idx: Key) => {
                         const basketInfo = basketProductsInfo.find((info: any) => info.product.title === item.title)
-                        console.log(basketInfo)
                         return (
                             <div className='cart-item' key={idx}>
                                 <div className='cart-product'>
@@ -52,7 +51,7 @@ const BasketItem = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo,
                             </span>
                         </div>
                         <div>
-                            <button className='btn-cart-buy'>{t('basket.buy')}</button>
+                            <button onClick={() => setVisibilityModalBuy(!visibilityModalBuy)} className='btn-cart-buy'>{t('basket.buy')}</button>
                         </div>
                         <div className='btn-go-shop'>
                             <button onClick={() => navigate('/')}>

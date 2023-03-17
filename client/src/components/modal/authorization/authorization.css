@@ -189,6 +189,41 @@
     background: #ec4b38;
 }
 
+.btn-close {
+    position: relative;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    transition: transform .2s, opacity .2s;
+}
+
+.btn-close:hover {
+    transform: scale(1.1);
+}
+  
+.btn-close:active {
+    transform: scale(.9);
+    opacity: .8;
+}
+
+.btn-close::before,
+.btn-close::after {
+    content: '';
+    height: 40px;
+    width: 3px;
+    position: absolute;
+    border-radius: 10px;
+    top: 50%;
+}
+
+.btn-close::before {
+    transform: translateY(-50%) rotate(45deg);
+}
+  
+.btn-close::after {
+    transform: translateY(-50%) rotate(-45deg);
+}
 
 @media (max-width: 1024px) {
     .modal-log__reg-content {

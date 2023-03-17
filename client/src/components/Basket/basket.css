@@ -200,6 +200,13 @@
     transition: all 0.3s ease;
 }
 
+.basket-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+}
+
 @media (max-width:992px) {
     .cart-container {
         width: 97%;

@@ -6,11 +6,13 @@ import jwt_decode from 'jwt-decode'
 import BasketList from './BasketList'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
+import BuyFormModal from '../modal/buyProduct/BuyFormModal'
 
 import './basket.css'
 
 const Basket = () => {
     const [basketProductsInfo, setBasketProductsInfo] = useState<any>([])
+    const [visibilityModalBuy, setVisibilityModalBuy] = useState<any>(false)
 
     const { t }: any = useTranslation()
 
@@ -47,6 +49,8 @@ const Basket = () => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
         dispatch(fetchDeleteAllBasketProduct(user.userId))
+        setVisibilityModalBuy(false)
+        navigate('/')
     }
 
     return (
@@ -58,6 +62,13 @@ const Basket = () => {
                 navigate={navigate}
                 changeBasketInfo={changeBasketInfo}
                 deleteProduct={deleteProduct}
+                visibilityModalBuy={visibilityModalBuy}
+                setVisibilityModalBuy={setVisibilityModalBuy}
+            />
+            <BuyFormModal
+                visibilityModalBuy={visibilityModalBuy}
+                setVisibilityModalBuy={setVisibilityModalBuy}
+                orderProduct={orderProduct}
             />
         </div>
     )

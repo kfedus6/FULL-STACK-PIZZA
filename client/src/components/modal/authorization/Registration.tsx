@@ -33,7 +33,7 @@ const Registration = ({ setIsRegisterOrLog, close }: any) => {
         <div className='modal-registration'>
             <div className='modal-registration-close' >
                 <span>{t('form.sign_up')}</span>
-                <img onClick={() => close(false)} src={process.env.REACT_APP_API_URL + 'close-pizza.png'} alt="close" />
+                <img className='btn-close' onClick={() => close(false)} src={process.env.REACT_APP_API_URL + 'close-pizza.png'} alt="close" />
             </div>
             <form className='modal-form-registration' onSubmit={handleSubmit(onSubmit)}>
                 <div className='form-hook-registration'>

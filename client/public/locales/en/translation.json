@@ -73,5 +73,15 @@
         "title_total": "Total",
         "buy": "Buy",
         "orders": "Order"
+    },
+    "modalBuy": {
+        "title": "Fill out the form",
+        "text": "We will bring you a hot pizza in 50 minutes",
+        "payment": "Payment in cash",
+        "payment_two": "Payment by card",
+        "payment_btn": "Send",
+        "name": "Name",
+        "phone": "Phone",
+        "address": "Address"
     }
 }

@@ -2,34 +2,41 @@ import React from 'react'
 
 import './buyFormModal.css'
 
-const BuyFormModal = ({ visibilityModalBuy, setVisilibilityModalBuy, orderProduct }: any) => {
+const BuyFormModal = ({ visibilityModalBuy, setVisilibilityModalBuy, orderProduct,
+    phone, setPhone, name, setName, address, setAddress, payment, setPayment, t }: any) => {
 
     return (
         <div className={visibilityModalBuy ? 'modal modal-active' : 'modal'}>
             <div className='modal-content'>
                 <div className='modal-header'>
-                    <h2>Заповніть форму</h2>
-                    <p>Ми привеземо вам гарячу піцу за 50 хвилин</p>
+                    <h2>{t('modalBuy.title')}</h2>
+                    <p>{t('modalBuy.text')}</p>
                 </div>
                 <div className='modal-form'>
                     <form>
                         <div className='modal-form__input'>
-                            <input type="text" placeholder="Имя" required />
+                            <input value={name} type="text" placeholder={t('modalBuy.name')} required
+                                onChange={(e) => setName(e.target.value)}
+                            />
                         </div>
                         <div className='modal-form__input'>
-                            <input type="phone" placeholder="Телефон" required />
+                            <input value={phone} type="phone" placeholder={t('modalBuy.phone')} required
+                                onChange={(e) => setPhone(e.target.value)}
+                            />
                         </div>
                         <div className='modal-form__input'>
-                            <input type="email" placeholder="Адрес" required />
+                            <input value={address} type="text" placeholder={t('modalBuy.address')} required
+                                onChange={(e) => setAddress(e.target.value)}
+                            />
                         </div>
                         <div className='modal-form__input'>
-                            <select >
-                                <option value="Оплата готівкою">Оплата готівкою</option>
-                                <option value="Оплата карткою">Оплата карткою</option>
+                            <select onChange={(e) => setPayment(e.target.value)}>
+                                <option value="Оплата готівкою">{t('modalBuy.payment')}</option>
+                                <option value="Оплата карткою">{t('modalBuy.payment_two')}</option>
                             </select>
                         </div>
                         <div className='modal-form__btn'>
-                            <button onClick={orderProduct} className='form__btn' type="submit">Відправити</button>
+                            <button onClick={orderProduct} className='form__btn' type="submit">{t('modalBuy.payment_btn')}</button>
                         </div>
                     </form>
                 </div>

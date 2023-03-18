@@ -8,6 +8,7 @@ import { User } from "../../models/User";
 import { typeProductSlice } from "./TypeProductSlice";
 import { TypeProduct } from "../../models/TypeProduct";
 import { basketSlice } from "./BasketSlice";
+import { orderSlice } from "./OrderSlice";
 
 //Fetch User
 
@@ -155,5 +156,18 @@ export const fetchDeleteAllBasketProduct = (id: any,) => async (dispatch: AppDis
         dispatch(basketSlice.actions.deleteBasketProductFetching(response.data))
     } catch (e: string | undefined | any) {
         dispatch(basketSlice.actions.basketProductFetchingError(e.message))
+    }
+}
+
+//Fetch Order
+
+export const fetchOrderPost = (order: any) => async (dispatch: AppDispatch) => {
+    console.log(order)
+    try {
+        dispatch(orderSlice.actions.orderFetchingLoading)
+        const response = await $host.post('pizza/order/', order)
+        dispatch(orderSlice.actions.orderFetchingCreate(response.data))
+    } catch (e: string | undefined | any) {
+        dispatch(orderSlice.actions.orderFetchingError(e.message))
     }
 }

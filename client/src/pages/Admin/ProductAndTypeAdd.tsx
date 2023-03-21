@@ -3,29 +3,30 @@ import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { useAppDispatch, useAppSelector } from '../../hooks/redux'
 import { fetchCreateProduct, fetchTypeProduct } from '../../store/reducers/ActionCreators'
+import { TypeProductState } from '../../store/reducers/TypeProductSlice'
 
 import './admin.css'
 
 const ProductAndTypeAdd = () => {
-    const [type, setType] = useState<any>('')
+    const [type, setType] = useState<string>('')
     const [typeId, setTypeId] = useState<any>()
-    const [title, setTitle] = useState<any>('')
-    const [description, setDescriprion] = useState<any>('')
-    const [priceFirst, setPriceFirst] = useState<any>('')
-    const [priceSecond, setPriceSecond] = useState<any>('')
-    const [priceThird, setPriceThird] = useState<any>('')
-    const [sizeFirst, setSizeFirst] = useState<any>('')
-    const [sizeSecond, setSizeSecond] = useState<any>('')
-    const [sizeThird, setSizeThird] = useState<any>('')
-    const [weightFirst, setWeightFirst] = useState<any>('')
-    const [weightSecond, setWeightSecond] = useState<any>('')
-    const [weightThird, setWeightThird] = useState<any>('')
+    const [title, setTitle] = useState<string>('')
+    const [description, setDescriprion] = useState<string>('')
+    const [priceFirst, setPriceFirst] = useState<string>('')
+    const [priceSecond, setPriceSecond] = useState<string>('')
+    const [priceThird, setPriceThird] = useState<string>('')
+    const [sizeFirst, setSizeFirst] = useState<string>('')
+    const [sizeSecond, setSizeSecond] = useState<string>('')
+    const [sizeThird, setSizeThird] = useState<string>('')
+    const [weightFirst, setWeightFirst] = useState<string>('')
+    const [weightSecond, setWeightSecond] = useState<string>('')
+    const [weightThird, setWeightThird] = useState<string>('')
     const [img, setImg] = useState<any>('')
 
     const { t }: any = useTranslation()
     const navigate = useNavigate()
 
-    const { types }: any = useAppSelector(state => state.TypeProductSlice)
+    const { types }: TypeProductState = useAppSelector(state => state.TypeProductSlice)
     const dispatch = useAppDispatch()
 
     const createPizza = async () => {

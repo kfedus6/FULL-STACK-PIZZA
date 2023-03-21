@@ -4,7 +4,14 @@ import Registration from './Registration'
 
 import './authorization.css'
 
-const Authorization = ({ isRegistration, setIsRegistration, isShow, setIsShow }: any) => {
+interface AuthorizationProps {
+    isRegistration: boolean;
+    setIsRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    isShow: boolean;
+    setIsShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Authorization: React.FC<AuthorizationProps> = ({ isRegistration, setIsRegistration, isShow, setIsShow }) => {
 
     return (
         <div onClick={() => { setIsShow(false) }} className={isShow ? 'modal-log__reg-active modal-log__reg' : 'modal-log__reg'}>

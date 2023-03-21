@@ -6,14 +6,28 @@ import { FaUser } from 'react-icons/fa'
 import { useAppSelector } from '../../hooks/redux'
 import Authorization from '../modal/authorization/Authorization'
 import { BsBasket2Fill } from 'react-icons/bs'
+import { UserState } from '../../store/reducers/UserSlice'
 
+interface BurgerProps {
+    burgerCheck: boolean;
+    setBurgerCheck: React.Dispatch<React.SetStateAction<boolean>>;
+    setIsShowRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    isRegistration: boolean;
+    setIsRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    setDropdownCheckAdmin: React.Dispatch<React.SetStateAction<boolean>>;
+    dropdownCheckAdmin: boolean;
+}
 
-const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistration, setIsRegistration, setDropdownCheckAdmin, dropdownCheckAdmin }: any) => {
+const Burger: React.FC<BurgerProps> = ({
+    burgerCheck, setBurgerCheck, setIsShowRegistration,
+    isRegistration, setIsRegistration, setDropdownCheckAdmin,
+    dropdownCheckAdmin }) => {
+
     const [isShow, setIsShow] = useState<boolean>(false)
 
     const { t } = useTranslation()
 
-    const { is_login, is_admin } = useAppSelector(state => state.userSlice)
+    const { is_login, is_admin }: UserState = useAppSelector(state => state.userSlice)
 
     return (
         <div className={burgerCheck ? 'menu active' : 'menu'} onClick={() => setBurgerCheck(false)}>
@@ -73,7 +87,12 @@ const Burger = ({ burgerCheck, setBurgerCheck, setIsShowRegistration, isRegistra
                     </div>
                 </div>
             </div>
-            <Authorization isRegistration={isRegistration} setIsRegistration={setIsRegistration} isShow={isShow} setIsShow={setIsShow} />
+            <Authorization
+                isRegistration={isRegistration}
+                setIsRegistration={setIsRegistration}
+                isShow={isShow}
+                setIsShow={setIsShow}
+            />
         </div>
     )
 }

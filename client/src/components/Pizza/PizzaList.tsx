@@ -2,19 +2,30 @@ import React from 'react'
 import PizzaItem from './PizzaItem'
 import Pagination from '@mui/material/Pagination'
 import Stack from '@mui/material/Stack'
+import { Product } from '../../models/Product'
 
-const PizzaList = ({
+interface PizzaListProps {
+    products: Product[],
+    page: number;
+    totalCount: number | undefined;
+    handleChangePage: (e: any, value: number) => void;
+    count: number;
+    is_admin: boolean;
+    addBasketPizza: (id: number, changeSize: number, changeWeight: number, changePrice: number, img: string, title: string) => void
+}
+
+const PizzaList: React.FC<PizzaListProps> = ({
     products, page, totalCount, handleChangePage,
-    count, is_admin, addBasketPizza }: any) => {
+    count, is_admin, addBasketPizza }) => {
 
     return (
         <div className='catalog'>
             <div className='catalog-items'>
-                {products.map((item: any) => {
+                {products.map((item: Product) => {
                     return (
                         <PizzaItem
                             key={item._id} item={item} is_admin={is_admin}
-                             addBasketPizza={addBasketPizza}
+                            addBasketPizza={addBasketPizza}
                         />
                     )
                 })}

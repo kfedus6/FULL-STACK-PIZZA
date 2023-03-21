@@ -4,7 +4,7 @@ import AppRouter from './components/AppRouter/AppRouter'
 import { useAppDispatch } from './hooks/redux';
 import { fetchUserAuthorization } from './store/reducers/ActionCreators';
 
-const App: React.FC | any = () => {
+const App = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {

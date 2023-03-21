@@ -1,8 +1,25 @@
 import React, { Key } from 'react'
 import { BsArrowLeft } from 'react-icons/bs'
 import { AiTwotoneDelete } from 'react-icons/ai'
+import { BasketProduct } from '../../models/BasketProduct';
+import { TFunction } from 'i18next';
+import { NavigateFunction } from 'react-router-dom';
 
-const BasketItem = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct, visibilityModalBuy, setVisibilityModalBuy }: any) => {
+interface BasketItemProps {
+    basket: BasketProduct[];
+    basketProductsInfo: any;
+    t: TFunction<"translation", undefined, "translation">;
+    navigate: NavigateFunction;
+    changeBasketInfo: (count: any, basketInfo: any) => void;
+    deleteProduct: (id: number) => void;
+    visibilityModalBuy: boolean;
+    setVisibilityModalBuy: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const BasketItem: React.FC<BasketItemProps> = ({
+    basket, basketProductsInfo, t,
+    navigate, changeBasketInfo, deleteProduct,
+    visibilityModalBuy, setVisibilityModalBuy }) => {
 
     return (
         <div className='cart-container'>

@@ -44,7 +44,11 @@ const Pizza = () => {
 
     return (
         <div className='page-pizza__home' id="pizzaHome">
-            <PizzaType types={types} typeId={typeId} setTypeId={setTypeId} />
+            <PizzaType
+                types={types}
+                typeId={typeId}
+                setTypeId={setTypeId}
+            />
             <PizzaList
                 products={products}
                 page={page}

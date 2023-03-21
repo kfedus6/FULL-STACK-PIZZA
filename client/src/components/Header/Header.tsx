@@ -87,16 +87,17 @@ const Header = () => {
                     </span>
                 </button>
             </div>
-            <Burger
-                onClick={() => setBurgerCheck(false)}
-                isRegistration={isRegistration}
-                setIsRegistration={setIsRegistration}
-                setIsShowRegistration={setIsShow}
-                burgerCheck={burgerCheck}
-                setBurgerCheck={setBurgerCheck}
-                dropdownCheckAdmin={dropdownCheckAdmin}
-                setDropdownCheckAdmin={setDropdownCheckAdmin}
-            />
+            <div onClick={() => setBurgerCheck(false)}>
+                <Burger
+                    setIsRegistration={setIsRegistration}
+                    isRegistration={isRegistration}
+                    setIsShowRegistration={setIsShow}
+                    burgerCheck={burgerCheck}
+                    setBurgerCheck={setBurgerCheck}
+                    dropdownCheckAdmin={dropdownCheckAdmin}
+                    setDropdownCheckAdmin={setDropdownCheckAdmin}
+                />
+            </div>
             <Authorization
                 isRegistration={isRegistration}
                 setIsRegistration={setIsRegistration}

@@ -1,8 +1,16 @@
 export interface Product {
-    id: number;
+    _id: number;
     title: string;
     description: string;
-    img: string,
-    price: number
+    img: string;
+    sizeFirst: number;
+    sizeSecond: number;
+    sizeThird: number;
+    weightFirst: number;
+    weightSecond: number;
+    weightThird: number;
+    priceFirst: number;
+    priceSecond: number;
+    priceThird: number;
     status: boolean;
 }

@@ -10,7 +10,12 @@ type Inputs = {
     password: string
 }
 
-const Login = ({ setIsRegistration, close }: any) => {
+interface LoginProps {
+    setIsRegistration: React.Dispatch<React.SetStateAction<boolean>>;
+    close: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Login: React.FC<LoginProps> = ({ setIsRegistration, close }) => {
     const { t }: any = useTranslation()
 
     const dispatch = useAppDispatch()

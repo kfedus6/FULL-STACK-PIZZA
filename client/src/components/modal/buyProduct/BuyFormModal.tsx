@@ -2,8 +2,25 @@ import React from 'react'
 
 import './buyFormModal.css'
 
-const BuyFormModal = ({ visibilityModalBuy, setVisilibilityModalBuy, orderProduct,
-    phone, setPhone, name, setName, address, setAddress, payment, setPayment, t }: any) => {
+interface BuyModalProps {
+    visibilityModalBuy: boolean;
+    setVisilibilityModalBuy: React.Dispatch<React.SetStateAction<boolean>>;
+    orderProduct: () => void;
+    phone: string;
+    setPhone: React.Dispatch<React.SetStateAction<string>>;
+    name: string;
+    setName: React.Dispatch<React.SetStateAction<string>>;
+    address: string;
+    setAddress: React.Dispatch<React.SetStateAction<string>>;
+    payment: string | undefined;
+    setPayment: React.Dispatch<React.SetStateAction<string | undefined>>;
+    t: any;
+}
+
+const BuyFormModal: React.FC<BuyModalProps> = ({
+    visibilityModalBuy, setVisilibilityModalBuy,
+    orderProduct, phone, setPhone, name, setName,
+    address, setAddress, payment, setPayment, t }) => {
 
     return (
         <div className={visibilityModalBuy ? 'modal modal-active' : 'modal'}>

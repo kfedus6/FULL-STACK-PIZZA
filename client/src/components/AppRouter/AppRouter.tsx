@@ -5,11 +5,12 @@ import Account from '../../pages/Account/Account'
 import ProductAndTypeAdd from '../../pages/Admin/ProductAndTypeAdd';
 import ProductUpdate from '../../pages/Admin/ProductUpdate';
 import Home from '../../pages/Home/Home';
+import { UserState } from '../../store/reducers/UserSlice';
 import Basket from '../Basket/Basket';
 import Layout from '../Layout/Layout';
 
 const AppRouter = () => {
-    const { is_admin }: any = useAppSelector(state => state.userSlice)
+    const { is_admin }: UserState = useAppSelector(state => state.userSlice)
 
     return (
         <Routes>

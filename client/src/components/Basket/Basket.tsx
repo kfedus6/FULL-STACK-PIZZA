@@ -12,13 +12,13 @@ import './basket.css'
 
 const Basket = () => {
     const [basketProductsInfo, setBasketProductsInfo] = useState<any>([])
-    const [visibilityModalBuy, setVisibilityModalBuy] = useState<any>(false)
-    const [phone, setPhone] = useState<any>('')
-    const [name, setName] = useState<any>('')
-    const [address, setAddress] = useState<any>('')
-    const [payment, setPayment] = useState<any>()
+    const [visibilityModalBuy, setVisibilityModalBuy] = useState<boolean>(false)
+    const [phone, setPhone] = useState<string>('')
+    const [name, setName] = useState<string>('')
+    const [address, setAddress] = useState<string>('')
+    const [payment, setPayment] = useState<string>()
 
-    const { t }: any = useTranslation()
+    const { t } = useTranslation()
 
     const navigate = useNavigate()
 
@@ -43,7 +43,7 @@ const Basket = () => {
         setBasketProductsInfo([...bpi, basketInfo])
     }
 
-    const deleteProduct = (id: any) => {
+    const deleteProduct = (id: number) => {
         dispatch(fetchDeleteBasketProduct(id))
         let newBasketProductInfo = basketProductsInfo.filter((item: any) => item.product._id !== id)
         setBasketProductsInfo(newBasketProductInfo)
@@ -74,7 +74,7 @@ const Basket = () => {
             />
             <BuyFormModal
                 visibilityModalBuy={visibilityModalBuy}
-                setVisibilityModalBuy={setVisibilityModalBuy}
+                setVisilibilityModalBuy={setVisibilityModalBuy}
                 orderProduct={orderProduct}
                 phone={phone}
                 setPhone={setPhone}

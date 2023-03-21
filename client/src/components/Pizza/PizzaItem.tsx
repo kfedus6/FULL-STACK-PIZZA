@@ -1,8 +1,16 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
+import { Product } from '../../models/Product';
 
-const PizzaItem = ({ item, is_admin, addBasketPizza }: any) => {
+interface PizzaItemProps {
+    item: Product,
+    is_admin: boolean;
+    addBasketPizza: (id: number, changeSize: number, changeWeight: number, changePrice: number, img: string, title: string) => void;
+}
+
+const PizzaItem: React.FC<PizzaItemProps> = ({ item, is_admin, addBasketPizza }) => {
+
     const [changeSize, setChangeSize] = useState<number>(22)
     const [changeWeight, setChangeWeight] = useState<number>(0)
     const [changePrice, setChangePrice] = useState<number>(0)

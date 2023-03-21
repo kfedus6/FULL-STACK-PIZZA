@@ -1,8 +1,25 @@
+import { TFunction } from 'i18next';
 import React from 'react'
+import { NavigateFunction } from 'react-router-dom';
+import { BasketProduct } from '../../models/BasketProduct';
 import Loading from '../Loading/Loading'
 import BasketItem from './BasketItem'
 
-const BasketList = ({ basket, basketProductsInfo, t, navigate, changeBasketInfo, deleteProduct, visibilityModalBuy, setVisibilityModalBuy }: any) => {
+interface BasketListProps {
+    basket: BasketProduct[];
+    basketProductsInfo: any;
+    t: TFunction<"translation", undefined, "translation">;
+    navigate: NavigateFunction;
+    changeBasketInfo: (count: number, basketInfo: any) => void;
+    deleteProduct: (id: number) => void;
+    visibilityModalBuy: boolean;
+    setVisibilityModalBuy: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const BasketList: React.FC<BasketListProps> = ({
+    basket, basketProductsInfo, t,
+    navigate, changeBasketInfo, deleteProduct,
+    visibilityModalBuy, setVisibilityModalBuy }) => {
 
     if (basket.length === 0) {
         return (

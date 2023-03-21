@@ -7,17 +7,17 @@ import { fetchDeleteProduct, fetchUpdateProduct } from '../../store/reducers/Act
 import './admin.css'
 
 const ProductUpdate = () => {
-    const [title, setTitle] = useState<any>('')
-    const [description, setDescriprion] = useState<any>('')
-    const [priceFirst, setPriceFirst] = useState<any>('')
-    const [priceSecond, setPriceSecond] = useState<any>('')
-    const [priceThird, setPriceThird] = useState<any>('')
-    const [sizeFirst, setSizeFirst] = useState<any>('')
-    const [sizeSecond, setSizeSecond] = useState<any>('')
-    const [sizeThird, setSizeThird] = useState<any>('')
-    const [weightFirst, setWeightFirst] = useState<any>('')
-    const [weightSecond, setWeightSecond] = useState<any>('')
-    const [weightThird, setWeightThird] = useState<any>('')
+    const [title, setTitle] = useState<string>('')
+    const [description, setDescriprion] = useState<string>('')
+    const [priceFirst, setPriceFirst] = useState<string>('')
+    const [priceSecond, setPriceSecond] = useState<string>('')
+    const [priceThird, setPriceThird] = useState<string>('')
+    const [sizeFirst, setSizeFirst] = useState<string>('')
+    const [sizeSecond, setSizeSecond] = useState<string>('')
+    const [sizeThird, setSizeThird] = useState<string>('')
+    const [weightFirst, setWeightFirst] = useState<string>('')
+    const [weightSecond, setWeightSecond] = useState<string>('')
+    const [weightThird, setWeightThird] = useState<string>('')
 
     const { id, status }: any = useParams()
     const dispatch = useAppDispatch()

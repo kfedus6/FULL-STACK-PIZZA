@@ -32,7 +32,7 @@ const PizzaItem: React.FC<PizzaItemProps> = ({ item, is_admin, addBasketPizza })
                     <img src={process.env.REACT_APP_API_URL + item.img} alt="pizz" className='product-img' />
                 </div>
                 <div className='product-content'>
-                    <h3 className='product-title'>{item.title}</h3>
+                    <h3 className='product-title-pizza'>{item.title}</h3>
                     <p className='product-description'>{item.description}</p>
                 </div>
                 <div className='product-footer'>

@@ -9,15 +9,15 @@ import { typeProductSlice } from "./TypeProductSlice";
 import { TypeProduct } from "../../models/TypeProduct";
 import { basketSlice } from "./BasketSlice";
 import { orderSlice } from "./OrderSlice";
+import axios from "axios";
 
 //Fetch User
 
 export const fetchUserRegistration = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await $host.post<User>('pizza/user/registration', objUser)
-        localStorage.setItem('token', data.token)
-        const user: any = jwt_decode(data.token)
-        dispatch(userSlice.actions.userFetchingRegistration({ is_admin: user.admin, user: user, is_login: true }))
+        const response = await $host.post<any>('pizza/user/registration', objUser)
+        localStorage.setItem('token', response.data.userData.accessToken)
+        dispatch(userSlice.actions.userFetchingRegistration({ is_admin: response.data.user.admin, user: response.data.user, is_login: true }))
     } catch (e: any) {
         dispatch(userSlice.actions.userFetchingError(e.message))
     }
@@ -25,10 +25,10 @@ export const fetchUserRegistration = (objUser: User) => async (dispatch: AppDisp
 
 export const fetchUserLogin = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await $host.post('pizza/user/login', objUser)
-        localStorage.setItem('token', data.token)
-        const user: any = jwt_decode(data.token)
-        dispatch(userSlice.actions.userFetchingLogin({ is_admin: user.admin, user: user, is_login: true }))
+        const response = await $host.post('pizza/user/login', objUser)
+        localStorage.setItem('token', response.data.userData.accessToken)
+        console.log(response)
+        dispatch(userSlice.actions.userFetchingLogin({ is_admin: response.data.userData.user.admin, user: response.data.userData.user, is_login: true }))
     } catch (e: any) {
         dispatch(userSlice.actions.userFetchingError(e.message))
     }
@@ -36,15 +36,16 @@ export const fetchUserLogin = (objUser: User) => async (dispatch: AppDispatch) =
 
 export const fetchUserAuthorization = () => async (dispatch: AppDispatch) => {
     try {
-        const { data } = await $authHost.get('pizza/user/authorization')
-        const user: any = jwt_decode(data.token)
-        dispatch(userSlice.actions.userFetchingAuthorization({ is_admin: user.admin, user: user, is_login: true }))
+        const response = await $host.get('pizza/user/refresh', { withCredentials: true })
+        localStorage.setItem('token', response.data.userData.accessToken)
+        dispatch(userSlice.actions.userFetchingAuthorization({ is_admin: response.data.userData.user.admin, user: response.data.userData.user, is_login: true }))
     } catch (e: any) {
-        dispatch(userSlice.actions.userFetchingAuthorization({ is_admin: false, user: {}, is_login: false }))
+        dispatch(userSlice.actions.userFetchingError(e.message))
     }
 }
 
 export const fetchUserExit = () => async (dispatch: AppDispatch) => {
+    const response = await $authHost.post('pizza/user/logout')
     localStorage.removeItem('token')
     dispatch(userSlice.actions.userFetchingLogin({ is_admin: false, user: {}, is_login: false }))
 }
@@ -171,3 +172,4 @@ export const fetchOrderPost = (order: any) => async (dispatch: AppDispatch) => {
         dispatch(orderSlice.actions.orderFetchingError(e.message))
     }
 }
+

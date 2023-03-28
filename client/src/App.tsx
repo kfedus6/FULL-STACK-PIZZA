@@ -8,12 +8,10 @@ const App = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        checkUser()
+        if (localStorage.getItem('token')) {
+            dispatch(fetchUserAuthorization())
+        }
     }, [])
-
-    const checkUser = async () => {
-        await dispatch(fetchUserAuthorization())
-    }
 
     return (
         <BrowserRouter>

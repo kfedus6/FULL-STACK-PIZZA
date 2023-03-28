@@ -10,8 +10,10 @@ import './admin.css'
 const ProductAndTypeAdd = () => {
     const [type, setType] = useState<string>('')
     const [typeId, setTypeId] = useState<any>()
-    const [title, setTitle] = useState<string>('')
-    const [description, setDescriprion] = useState<string>('')
+    const [titleUA, setTitleUA] = useState<string>('')
+    const [titleEN, setTitleEN] = useState<string>('')
+    const [descriptionUA, setDescriprionUA] = useState<string>('')
+    const [descriptionEN, setDescriprionEN] = useState<string>('')
     const [priceFirst, setPriceFirst] = useState<string>('')
     const [priceSecond, setPriceSecond] = useState<string>('')
     const [priceThird, setPriceThird] = useState<string>('')
@@ -31,8 +33,10 @@ const ProductAndTypeAdd = () => {
 
     const createPizza = async () => {
         const formData = new FormData()
-        formData.append('title', title)
-        formData.append('description', description)
+        formData.append('titleUA', titleUA)
+        formData.append('titleEN', titleEN)
+        formData.append('descriptionUA', descriptionUA)
+        formData.append('descriptionEN', descriptionEN)
         formData.append('priceFirst', priceFirst)
         formData.append('priceSecond', priceSecond)
         formData.append('priceThird', priceThird)
@@ -45,8 +49,10 @@ const ProductAndTypeAdd = () => {
         formData.append('img', img[0])
         formData.append('typeId', typeId)
         await dispatch(fetchCreateProduct(formData))
-        setTitle('')
-        setDescriprion('')
+        setTitleUA('')
+        setTitleEN('')
+        setDescriprionUA('')
+        setDescriprionEN('')
         setPriceFirst('')
         setPriceSecond('')
         setPriceThird('')
@@ -95,10 +101,21 @@ const ProductAndTypeAdd = () => {
                                 className='admin-text'
                                 placeholder=' '
                                 type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
+                                value={titleUA}
+                                onChange={(e) => setTitleUA(e.target.value)}
                             />
                             <label className='admin-label' htmlFor='admin-firts'>{t('admin.input_title')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-firsts'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={titleEN}
+                                onChange={(e) => setTitleEN(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-firtss'>{t('admin.input_title')}</label>
                         </div>
                         <div className='admin-form-input'>
                             <input
@@ -106,8 +123,19 @@ const ProductAndTypeAdd = () => {
                                 className='admin-text'
                                 placeholder=' '
                                 type="text"
-                                value={description}
-                                onChange={(e) => setDescriprion(e.target.value)}
+                                value={descriptionUA}
+                                onChange={(e) => setDescriprionUA(e.target.value)}
+                            />
+                            <label className='admin-label' htmlFor='admin-second'>{t('admin.input_description')}</label>
+                        </div>
+                        <div className='admin-form-input'>
+                            <input
+                                id='admin-second'
+                                className='admin-text'
+                                placeholder=' '
+                                type="text"
+                                value={descriptionEN}
+                                onChange={(e) => setDescriprionEN(e.target.value)}
                             />
                             <label className='admin-label' htmlFor='admin-second'>{t('admin.input_description')}</label>
                         </div>

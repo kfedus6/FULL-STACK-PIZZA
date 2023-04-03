@@ -8,10 +8,17 @@ const App = () => {
     const dispatch = useAppDispatch()
 
     useEffect(() => {
+        chechAuthorization()
+        /*
         if (localStorage.getItem('token')) {
             dispatch(fetchUserAuthorization())
         }
+        */
     }, [])
+
+    const chechAuthorization = () => {
+        dispatch(fetchUserAuthorization())
+    }
 
     return (
         <BrowserRouter>

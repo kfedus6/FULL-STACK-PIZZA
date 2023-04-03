@@ -28,7 +28,7 @@ const Basket = () => {
     useEffect(() => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
-        dispatch(fetchGetBasketProduct(user.userId))
+        dispatch(fetchGetBasketProduct(user.id))
         let bpi = basketProductsInfo
         for (const product of basket) {
             bpi = [...bpi, { product: product, count: 1, sum: product.price, }]
@@ -53,7 +53,7 @@ const Basket = () => {
         let token: any = localStorage.getItem('token')
         let user: any = jwt_decode(token)
         let sum = basketProductsInfo.reduce((prev: any, next: any) => prev += next.sum, 0)
-        let order = { name: name, phone: phone, address: address, payment: payment, sum: sum, userId: user.userId, products: basketProductsInfo }
+        let order = { name: name, phone: phone, address: address, payment: payment, sum: sum, userId: user.id, products: basketProductsInfo }
         dispatch(fetchOrderPost(order))
         dispatch(fetchDeleteAllBasketProduct(user.userId))
         setVisibilityModalBuy(false)

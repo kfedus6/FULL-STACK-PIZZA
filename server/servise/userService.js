@@ -21,7 +21,6 @@ class UserService {
             email: email,
             password: hashPassword,
             phone: phone,
-            activationLink: activationLink,
             admin: 0
         })
         const basket = await Basket.create({ userId: user.id })

@@ -16,8 +16,8 @@ import axios from "axios";
 export const fetchUserRegistration = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
         const response = await $host.post<any>('pizza/user/registration', objUser)
-        localStorage.setItem('token', response.data.userData.accessToken)
-        dispatch(userSlice.actions.userFetchingRegistration({ is_admin: response.data.user.admin, user: response.data.user, is_login: true }))
+        localStorage.setItem('token', response.data.userData.tokens.accessToken)
+        dispatch(userSlice.actions.userFetchingRegistration({ is_admin: response.data.userData.user.admin, user: response.data.userData.user, is_login: true }))
     } catch (e: any) {
         dispatch(userSlice.actions.userFetchingError(e.message))
     }
@@ -26,8 +26,7 @@ export const fetchUserRegistration = (objUser: User) => async (dispatch: AppDisp
 export const fetchUserLogin = (objUser: User) => async (dispatch: AppDispatch) => {
     try {
         const response = await $host.post('pizza/user/login', objUser)
-        localStorage.setItem('token', response.data.userData.accessToken)
-        console.log(response)
+        localStorage.setItem('token', response.data.userData.tokens.accessToken)
         dispatch(userSlice.actions.userFetchingLogin({ is_admin: response.data.userData.user.admin, user: response.data.userData.user, is_login: true }))
     } catch (e: any) {
         dispatch(userSlice.actions.userFetchingError(e.message))
@@ -36,9 +35,9 @@ export const fetchUserLogin = (objUser: User) => async (dispatch: AppDispatch) =
 
 export const fetchUserAuthorization = () => async (dispatch: AppDispatch) => {
     try {
-        const response = await $host.get('pizza/user/refresh', { withCredentials: true })
-        localStorage.setItem('token', response.data.userData.accessToken)
-        dispatch(userSlice.actions.userFetchingAuthorization({ is_admin: response.data.userData.user.admin, user: response.data.userData.user, is_login: true }))
+        //const response = await $host.get('pizza/user/refresh', { withCredentials: true })
+        //localStorage.setItem('token', response.data.userData.tokens.accessToken)
+        dispatch(userSlice.actions.userFetchingAuthorization({ is_admin: true, user: {}, is_login: true }))
     } catch (e: any) {
         dispatch(userSlice.actions.userFetchingError(e.message))
     }

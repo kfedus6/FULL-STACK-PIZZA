@@ -16,10 +16,10 @@ class UserController {
 
     async login(req, res, next) {
         try {
-            const { email, password } = req.body;
-            const userData = await userService.login(email, password);
+            const { email, password } = req.body
+            const userData = await userService.login(email, password)
             res.cookie('refreshToken', userData.tokens.refreshToken, { maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true })
-            return res.json({ status: 200, userData });
+            return res.json({ status: 200, userData })
         } catch (e) {
             console.log(e)
             return next(ApiError.internal('Login error'))
@@ -34,16 +34,6 @@ class UserController {
             return res.json({ status: 200, token })
         } catch (e) {
             return next(ApiError.internal('Logout error'))
-        }
-    }
-
-    async activate(req, res, next) {
-        try {
-            const activationLink = req.params.link
-            await userService.activate(activationLink)
-            return res.redirect(process.env.CLIENT_URL)
-        } catch (e) {
-            return next(ApiError.internal('Activate error'))
         }
     }
 

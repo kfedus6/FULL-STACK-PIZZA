@@ -21,7 +21,7 @@
 <p style="font-size: 25px;"><strong>- Home</strong></p>
 
 <p align="center">
-  <img src="/README/home.gif" alt="Home" width="00px" height="400px"/>
+  <img src="/README/home.gif" alt="Home" width="800px" height="400px"/>
 </p>
 
 ---
